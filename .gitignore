@@ -45,3 +45,8 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+*.name
+.idea/ATS.iml
+.idea/encodings.xml
+.idea/modules.xml
+*.xml
