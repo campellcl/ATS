@@ -14,17 +14,51 @@ hikers = []
 hiker_identifiers = set([])
 
 """
-TODO: class descriptors.
+TODO: class descriptor.
 """
 class Hiker:
-    name = ''
-    trail_name = ''
-    direction = ''
-    start_date = None
-    end_date = None
-    identifier = None
-    journal = None
+    # TODO: get help overloading the constructor with named variables as in below:
+    '''
+    def __init__(self, identifier, name, trail_name, direction, start_date, end_date, journal):
+        self.identifier = identifier
+        self.name = name
+        self.trail_name = trail_name
+        self.direction = direction
+        self.start_date = start_date
+        self.end_date = end_date
+        self.journal = journal
+    '''
 
+    # TODO: Is the below parameterization a correct overloading of the constructor above? Will it work with only 'identifier' as an argument?
+    def __init__(self, identifier, **kwargs):
+        self.identifier = identifier
+        self.journal = {}
+        for key, value in kwargs.items():
+            self.key = value
+
+    def addJournalEntry(self, entry_number, starting_location, destination, day_mileage, trip_mileage):
+        if self.journal == None:
+            self.journal = {'ENO': entry_number, 'dest': destination, 'start_loc': starting_location, 'day_mileage': day_mileage, 'trip_mileage': trip_mileage}
+        else:
+            self.journal[str(entry_number)] = {'dest': destination, 'start_loc': starting_location, 'day_mileage': day_mileage, 'trip_mileage': trip_mileage}
+
+    def removeJournalEntry(self, entry_number):
+        del self.journal[str(entry_number)]
+
+    def setHikerName(self, hiker_name):
+        self.name = hiker_name
+
+    def setHikerTrailName(self, trail_name):
+        self.trail_name = trail_name
+
+    def setHikerTrailDirection(self, direction):
+        self.direction = direction
+
+    def setHikerStartDate(self, starting_date):
+        self.start_date = starting_date
+
+    def setHikerEndDate(self, estimated_end_date):
+        self.end_date = estimated_end_date
 
 
 def getHikerInfo(trail_name, hiker_string):
@@ -84,22 +118,36 @@ def parseHikers(hiker_journal_urls):
 TODO: method body.
 '''
 def parseHiker(identifier, journal_url):
-    hiker = {'identifier': identifier}
+    hiker = Hiker(identifier=identifier)
     driver.get(journal_url)
+    # TODO: Some hiker's trail journals link to their first entry; most don't.
+    # TODO: If the hiker's journal links to the first entry then the below code fails.
     hiker_nav_bar_xpath = "/html/body/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table[1]/tbody/tr[1]/td"
     hiker_nav_bar = driver.find_elements_by_xpath(hiker_nav_bar_xpath)
     first_entry = driver.find_element_by_xpath(hiker_nav_bar_xpath + "/a[position()=1]")
-    driver.get(first_entry.get_attribute("href"))
+    first_entry_url = first_entry.get_attribute("href")
+    # Determine if already on the first entry of the journal:
+    if first_entry.text != 'Next':
+        driver.get(first_entry_url)
     last_entry = driver.find_element_by_xpath(hiker_nav_bar_xpath + "/a[position()=2]")
     last_entry_url = last_entry.get_attribute("href")
     next_entry = driver.find_element_by_xpath(hiker_nav_bar_xpath + "/a[position()=1]")
     next_entry_url = next_entry.get_attribute("href")
     entry_number = 0
+    journal_index = 0
     trail_info_xpath = "/html/body/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table[1]/tbody/tr[4]"
+    trail_info_xpath2 = "/html/body/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table[1]/tbody/child::*"
+    trail_info = driver.find_elements_by_xpath(trail_info_xpath2)
     destination_xpath = trail_info_xpath + "/td[2]/span[2]"
     start_loc_xpath = trail_info_xpath + "/td[2]/span[4]"
     day_mileage_xpath = trail_info_xpath + "/td[3]/span[2]"
     trip_mileage_xpath = trail_info_xpath + "/td[3]/span[4]"
+
+    # TODO: Error when parsing data as there is a difference in pages.
+    # TODO: Page A needs a selection of "../tbody/tr[position()=3]/.." given here: http://www.trailjournals.com/entry.cfm?id=521994
+    # TODO: Page B needs a selection of "../tbody/tr[position()=4]/.." given here: http://www.trailjournals.com/entry.cfm?id=521993
+    # TODO: Resolve this by checking the len(web_object) returned by driver.
+    #       if number <tr> == 3 then grab position()=num_tr-1.
 
     while next_entry_url != last_entry_url:
         try:
@@ -130,17 +178,19 @@ def parseHiker(identifier, journal_url):
             # no trip mileage provided
             trip_mileage = ''
             pass
-        if entry_number != 0:
+        if journal_index != 0:
             # TODO: parse other page content here.
             next_entry = driver.find_element_by_xpath(hiker_nav_bar_xpath + "/a[position()=3]")
             next_entry_url = next_entry.get_attribute("href")
         else:
-            hiker['journal'] = {'ENO': 0}
-        hiker['journal']['dest'] = destination
-        hiker['journal']['start_loc'] = start_loc
-        hiker['journal']['day_mileage'] = day_mileage
-        hiker['journal']['trip_mileage'] = trip_mileage
-        entry_number += 1
+            next_entry = driver.find_element_by_xpath(hiker_nav_bar_xpath + "/a[position()=1]")
+            next_entry_url = next_entry.get_attribute("href")
+
+        # if all fields are blank; don't bother storing.
+        if start_loc != '' or destination != ''or trip_mileage != '' or day_mileage != '':
+            hiker.addJournalEntry(entry_number=entry_number, starting_location=start_loc, destination=destination, day_mileage=day_mileage, trip_mileage=trip_mileage)
+            entry_number += 1
+        journal_index += 1
         driver.get(next_entry_url)
     # TODO: parse the last page content here.
 
