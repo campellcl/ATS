@@ -5,7 +5,9 @@ TODO: file description
 @Version: 6/3/2016
 """
 import sys
+import json
 from selenium import webdriver
+from itertools import islice
 from timeit import timeit
 
 driver = webdriver.Firefox()
@@ -36,11 +38,11 @@ class Hiker:
         for key, value in kwargs.items():
             self.key = value
 
-    def addJournalEntry(self, entry_number, starting_location, destination, day_mileage, trip_mileage):
+    def addJournalEntry(self, entry_number, starting_location, destination, day_mileage, trip_mileage, date):
         if self.journal == None:
-            self.journal = {'ENO': entry_number, 'dest': destination, 'start_loc': starting_location, 'day_mileage': day_mileage, 'trip_mileage': trip_mileage}
+            self.journal = {'ENO': entry_number, 'dest': destination, 'start_loc': starting_location, 'day_mileage': day_mileage, 'trip_mileage': trip_mileage, 'date': date}
         else:
-            self.journal[str(entry_number)] = {'dest': destination, 'start_loc': starting_location, 'day_mileage': day_mileage, 'trip_mileage': trip_mileage}
+            self.journal[str(entry_number)] = {'dest': destination, 'start_loc': starting_location, 'day_mileage': day_mileage, 'trip_mileage': trip_mileage, 'date': date}
 
     def removeJournalEntry(self, entry_number):
         del self.journal[str(entry_number)]
@@ -133,15 +135,23 @@ def parseHiker(identifier, journal_url):
     last_entry_url = last_entry.get_attribute("href")
     next_entry = driver.find_element_by_xpath(hiker_nav_bar_xpath + "/a[position()=1]")
     next_entry_url = next_entry.get_attribute("href")
+    journal_date_xpath = "/html/body/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table[1]/tbody/tr[2]/td/div/font/i"
     entry_number = 0
     journal_index = 0
+    # check to see if title was provided...
     trail_info_xpath = "/html/body/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table[1]/tbody/tr[4]"
-    trail_info_xpath2 = "/html/body/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table[1]/tbody/child::*"
-    trail_info = driver.find_elements_by_xpath(trail_info_xpath2)
-    destination_xpath = trail_info_xpath + "/td[2]/span[2]"
-    start_loc_xpath = trail_info_xpath + "/td[2]/span[4]"
-    day_mileage_xpath = trail_info_xpath + "/td[3]/span[2]"
-    trip_mileage_xpath = trail_info_xpath + "/td[3]/span[4]"
+    trail_info_xpath2 = "/html/body/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table[1]/tbody/tr[3]"
+    trail_info = driver.find_elements_by_xpath(trail_info_xpath)
+    if 'First Previous Next Last' not in trail_info[0].text:
+        destination_xpath = trail_info_xpath2 + "/td[2]/span[2]"
+        start_loc_xpath = trail_info_xpath2 + "/td[2]/span[4]"
+        day_mileage_xpath = trail_info_xpath2 + "/td[3]/span[2]"
+        trip_mileage_xpath = trail_info_xpath2 + "/td[3]/span[4]"
+    else:
+        destination_xpath = trail_info_xpath + "/td[2]/span[2]"
+        start_loc_xpath = trail_info_xpath + "/td[2]/span[4]"
+        day_mileage_xpath = trail_info_xpath + "/td[3]/span[2]"
+        trip_mileage_xpath = trail_info_xpath + "/td[3]/span[4]"
 
     # TODO: Error when parsing data as there is a difference in pages.
     # TODO: Page A needs a selection of "../tbody/tr[position()=3]/.." given here: http://www.trailjournals.com/entry.cfm?id=521994
@@ -178,6 +188,13 @@ def parseHiker(identifier, journal_url):
             # no trip mileage provided
             trip_mileage = ''
             pass
+        try:
+            journal_date = driver.find_element_by_xpath(journal_date_xpath)
+            journal_date = journal_date.text
+        except:
+            # journal entry not dated.
+            journal_date = ''
+            pass
         if journal_index != 0:
             # TODO: parse other page content here.
             next_entry = driver.find_element_by_xpath(hiker_nav_bar_xpath + "/a[position()=3]")
@@ -188,17 +205,48 @@ def parseHiker(identifier, journal_url):
 
         # if all fields are blank; don't bother storing.
         if start_loc != '' or destination != ''or trip_mileage != '' or day_mileage != '':
-            hiker.addJournalEntry(entry_number=entry_number, starting_location=start_loc, destination=destination, day_mileage=day_mileage, trip_mileage=trip_mileage)
+            hiker.addJournalEntry(entry_number=entry_number, starting_location=start_loc, destination=destination, day_mileage=day_mileage, trip_mileage=trip_mileage, date=journal_date)
             entry_number += 1
         journal_index += 1
         driver.get(next_entry_url)
     # TODO: parse the last page content here.
+    hikers.append(hiker)
+    '''
+    output_file = open("hiker-data.json", 'w')
+    json.dump(hiker.journal, output_file)
+    '''
 
+
+'''
+TODO: function definition.
+'''
+def isFirstPage(hiker_url):
+    hiker_nav_bar_xpath = "/html/body/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table[1]/tbody/tr[1]/td"
+    first_link = driver.find_element_by_xpath(hiker_nav_bar_xpath + "/a[position()=1]")
+    first_link_url = first_link.get_attribute("href")
+    return first_link.text == 'Next'
+
+def getFirstEntry(hiker_url):
+    # TODO: method body.
+    hiker_nav_bar_xpath = "/html/body/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table[1]/tbody/tr[1]/td"
+    first_entry = driver.find_element_by_xpath(hiker_nav_bar_xpath + "/a[position()=1]")
+    first_entry_url = first_entry.get_attribute("href")
 
 '''
 TODO: method body.
 '''
 def main(args):
+    start_url = "http://www.trailjournals.com/entry.cfm?trailname="
+    at_hikers = open("at-hikers.txt", 'r')
+    starting_line_number_exclusive = 0
+    ending_line_number_inclusive = 1
+    for line in iter(at_hikers):
+        hiker_url = start_url + line
+        parseHiker(identifier=line,journal_url=hiker_url)
+    at_hikers.close()
+    output_file = open("hiker-data.json", 'w')
+    json.dump(hikers, output_file)
+    '''
     num_hikers = 0
     start_url = "http://www.trailjournals.com/journals/appalachian_trail/"
     driver.get(start_url)
@@ -220,6 +268,7 @@ def main(args):
             hiker_identifier = journal_url.split("=")[1]
             parseHiker(hiker_identifier, journal_url)
         # print(journal_url)
+    '''
 
 if __name__ == '__main__':
     main(sys.argv)

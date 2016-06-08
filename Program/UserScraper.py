@@ -13,7 +13,7 @@ journal_name_xpath = "/html/body/table/tbody/tr[4]/td/table/tbody/tr/td[2]/div/f
 # previous = 13347
 previous = 20207
 
-print("Bot Active. Archiving users [%d:%d]" % previous, estimated_user_bound)
+print("Bot Active. Archiving users [%d:%d]" %(previous, estimated_user_bound))
 for i in range(previous, estimated_user_bound):
     user_url = start_url + str(i)
     driver.get(user_url)
