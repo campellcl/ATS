@@ -7,11 +7,13 @@ hikers = set([])
 #estimated num_hikers = 30,000
 estimated_user_bound = 30000
 user_dump = open('at-hikers.txt', 'a')
-print("Bot Active. Archiving users [0:%d]" % estimated_user_bound)
+
 start_url = "http://www.trailjournals.com/entry.cfm?trailname="
 journal_name_xpath = "/html/body/table/tbody/tr[4]/td/table/tbody/tr/td[2]/div/font"
 # previous = 13347
-previous = 6827
+previous = 20207
+
+print("Bot Active. Archiving users [%d:%d]" % previous, estimated_user_bound)
 for i in range(previous, estimated_user_bound):
     user_url = start_url + str(i)
     driver.get(user_url)
@@ -31,3 +33,4 @@ for i in range(previous, estimated_user_bound):
     except:
         pass
 user_dump.close()
+
