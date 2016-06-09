@@ -28,7 +28,7 @@ def testDataStore(json_fname):
 # Test Suite Driver:
 num_hikers = fileLineCount("at-hikers.txt")
 print("Current Number of Unique AT Hikers Logged: %d" % num_hikers)
-testDataStore("hiker-data.json")
+# testDataStore("hiker-data.json")
 
 
 

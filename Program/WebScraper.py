@@ -7,7 +7,7 @@ TODO: file description
 import sys
 import json
 from selenium import webdriver
-from itertools import islice
+import itertools
 from timeit import timeit
 
 driver = webdriver.Firefox()
@@ -238,14 +238,25 @@ TODO: method body.
 def main(args):
     start_url = "http://www.trailjournals.com/entry.cfm?trailname="
     at_hikers = open("at-hikers.txt", 'r')
-    starting_line_number_exclusive = 0
-    ending_line_number_inclusive = 1
-    for line in iter(at_hikers):
-        hiker_url = start_url + line
-        parseHiker(identifier=line,journal_url=hiker_url)
+    loop_sentinal = 1
+    # for line in itertools.islice(at_hikers, start=0, stop=1):
+    for i, line, in enumerate(iterable=at_hikers, start=0):
+        if i >= loop_sentinal:
+            break
+        else:
+            hiker_url = start_url + line
+            parseHiker(identifier=line,journal_url=hiker_url)
     at_hikers.close()
     output_file = open("hiker-data.json", 'w')
-    json.dump(hikers, output_file)
+    for hiker in hikers:
+        # TODO: figure out how to represent class Hiker as a JSON serializable object.
+        hiker_name = json.dump(hiker.name)
+        hiker_trail_name
+        # hiker_json = json.dumps(hiker.__dict__)
+        # output_file.write(hiker_json)
+    # json.dump(hikers, output_file)
+    output_file.close()
+
     '''
     num_hikers = 0
     start_url = "http://www.trailjournals.com/journals/appalachian_trail/"
