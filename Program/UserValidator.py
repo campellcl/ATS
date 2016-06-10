@@ -6,6 +6,7 @@ A test suite for ensuring the web scraper is writing data to hard drive correctl
 """
 from selenium import webdriver
 import json
+import os.path
 from pprint import pprint
 
 driver = webdriver.Firefox()
@@ -21,14 +22,20 @@ def fileLineCount(fname):
     :param json_fname - The name of the json file to extract data from and validate.
 '''
 def testDataStore(json_fname):
-    with open(json_fname) as data_file:
+    storage_dir = "C:/Users/Chris/Documents/GitHub/ATS/Data/Hiker_Data"
+    fname = storage_dir + "/" + json_fname
+    working_dir = os.getcwd()
+    os.chdir(storage_dir)
+    with open(fname, "r") as data_file:
         data = json.load(data_file)
     pprint(data)
+    os.chdir(working_dir)
 
 # Test Suite Driver:
 num_hikers = fileLineCount("at-hikers.txt")
 print("Current Number of Unique AT Hikers Logged: %d" % num_hikers)
-# testDataStore("hiker-data.json")
+# testDataStore("2.json")
+
 
 
 

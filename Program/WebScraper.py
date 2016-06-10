@@ -148,6 +148,7 @@ def writeHiker(hiker):
         json_fname = write_dir + "/" + str(hiker.identifier) + ".json"
         with open(json_fname, 'w') as fp:
             json.dump(hiker_json, fp)
+        print("Hiker id: %d now logged." % hiker.identifier)
     else:
         print("ERROR: Write directory not specified correctly. Hiker %d (%s) not saved." % hiker.identifier, hiker.name)
     os.chdir(working_dir)
@@ -262,32 +263,17 @@ def main(args):
     # main loop checks Data/Hiker_Data for presence of [hiker_id].json file. If file is absent then parse necessary data.
     start_url = "http://www.trailjournals.com/entry.cfm?trailname="
     at_hikers = open("at-hikers.txt", 'r')
-    loop_sentinel = 1
-    # for line in itertools.islice(at_hikers, start=0, stop=1):
-    for i, line, in enumerate(iterable=at_hikers, start=0):
-        if i >= loop_sentinel:
-            break
-        else:
+    storage_location = "C:/Users/Chris/Documents/GitHub/ATS/Data/Hiker_Data"
+    for line in iter(at_hikers):
+        hiker_fname = storage_location + "/" + str.strip(line, '\n') + ".json"
+        if not os.path.isfile(hiker_fname):
             hiker_url = start_url + line
             hiker = recordHikerInfo(hiker_id=int(line), journal_url=hiker_url)
             hiker = parseHikerJournal(hiker, journal_url=hiker_url)
             writeHiker(hiker)
+        else:
+            print("Hiker id: %d has already been logged." % int(line))
     at_hikers.close()
-
-    for hiker in hikers:
-        hiker_dict = {'identifier': hiker.identifier, 'name': hiker.name,
-                      'trail_name': hiker.trail_name, 'direction': hiker.direction,
-                      'start_date': hiker.start_date, 'end_date': hiker.end_date,
-                      'journal': hiker.journal}
-        json_fname = str(hiker.identifier) + ".json"
-        with open(json_fname, 'w') as fp:
-            json.dump(hiker_dict, fp=fp)
-        # TODO: figure out how to represent class Hiker as a JSON serializable object.
-        # hiker_name = json.dump(hiker.name)
-        # hiker_json = json.dumps(hiker.__dict__)
-        # output_file.write(hiker_json)
-    # json.dump(hikers, output_file)
-
 
 if __name__ == '__main__':
     main(sys.argv)
