@@ -7,8 +7,10 @@ TODO: file description
 import sys
 import json
 from selenium import webdriver
+import os.path
 import itertools
 from timeit import timeit
+from json import JSONEncoder
 
 driver = webdriver.Firefox()
 num_hikers = 0
@@ -31,12 +33,13 @@ class Hiker:
         self.journal = journal
     '''
 
-    # TODO: Is the below parameterization a correct overloading of the constructor above? Will it work with only 'identifier' as an argument?
-    def __init__(self, identifier, **kwargs):
+    def __init__(self, identifier, name=None, trail_name=None, start_date=None, end_date=None, journal={}):
         self.identifier = identifier
-        self.journal = {}
-        for key, value in kwargs.items():
-            self.key = value
+        self.name = name
+        self.trail_name = trail_name
+        self.start_date = start_date
+        self.end_date = end_date
+        self.journal = journal
 
     def addJournalEntry(self, entry_number, starting_location, destination, day_mileage, trip_mileage, date):
         if self.journal == None:
@@ -62,30 +65,46 @@ class Hiker:
     def setHikerEndDate(self, estimated_end_date):
         self.end_date = estimated_end_date
 
-
-def getHikerInfo(trail_name, hiker_string):
-    hiker_info = hiker_string.split("\n")
-    hiker_name = ""
-    journal_url = ""
-    start_date = ""
-    finish_date = ""
-    south_bound = False
-    for str in hiker_info:
-        if "Started:" in str:
-            start_date = str
-        elif "Finishing:" in str:
-            finish_date = str
-        elif "www." in str:
-            journal_url = str
-        elif str == "Southbound":
-            south_bound = True
-        else:
-            if (str != trail_name and str != ""):
-                hiker_name = str
-            # either hiker name or trail name provided.
-            # handle this information in the parent method.
-            pass
-    hiker = {'trail_name' : trail_name, 'name' : hiker_name, 'journal_url' : journal_url, 'start_date' : start_date, 'finish_date' : finish_date, 'southbound' : south_bound}
+def recordHikerInfo(hiker_id, journal_url):
+    driver.get(journal_url)
+    about_url_xpath = "/html/body/table/tbody/tr[4]/td/table/tbody/tr/td[1]/table[1]/tbody/tr/td/table[3]/tbody/tr[4]/td/a"
+    about_url = driver.find_element_by_xpath(about_url_xpath).get_attribute("href")
+    driver.get(about_url)
+    # Attempt to get hiker information:
+    hiker_name_xpath = "/html/body/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[2]/td/font[2]"
+    hiker_trail_name_xpath = "/html/body/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[2]/td/font[1]"
+    hiker_start_date_xpath = "/html/body/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[5]/td[2]/a"
+    hiker_end_date_xpath = "/html/body/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[6]/td[2]"
+    try:
+        hiker_name = driver.find_element_by_xpath(hiker_name_xpath).text
+        hiker_name = str.strip(hiker_name, ' - ')
+    except:
+        # hiker name not provided.
+        hiker_name = None
+        pass
+    try:
+        hiker_trail_name = driver.find_element_by_xpath(hiker_trail_name_xpath).text
+    except:
+        # hiker trail name not provided.
+        hiker_trail_name = None
+        pass
+    try:
+        hiker_start_date = driver.find_element_by_xpath(hiker_start_date_xpath).text
+    except:
+        # hiker start date not provided.
+        hiker_start_date = None
+        pass
+    try:
+        hiker_end_date = driver.find_element_by_xpath(hiker_end_date_xpath).text
+    except:
+        # hiker end date not provided.
+        hiker_end_date = None
+        pass
+    # Add the hiker data to the list of hikers. Hiker will be created with hiker.journal = {}.
+    hiker = Hiker(identifier=hiker_id, name=hiker_name,
+                  trail_name=hiker_trail_name, start_date=hiker_start_date, end_date=hiker_end_date)
+    # Update the hiker identifiers list to reflect that this hiker's non-journal information has been logged.
+    hiker_identifiers.add(hiker_id)
     return hiker
 
 '''
@@ -116,11 +135,27 @@ def parseHikers(hiker_journal_urls):
             driver.get(next_entry_url)
         # TODO: parse the last page content here.
 
+def writeHiker(hiker):
+    hiker_json = {'identifier': hiker.identifier, 'name': hiker.name,
+                  'trail_name': hiker.trail_name, 'start_date': hiker.start_date,
+                  'end_date': hiker.end_date, 'journal': hiker.journal}
+    write_dir = "C:/Users/Chris/Documents/GitHub/ATS/Data/Hiker_Data"
+    working_dir = os.getcwd()
+    # validate write directory:
+    if os.path.isdir(write_dir):
+        # write directory recognized. Create new file.
+        os.chdir(write_dir)
+        json_fname = write_dir + "/" + str(hiker.identifier) + ".json"
+        with open(json_fname, 'w') as fp:
+            json.dump(hiker_json, fp)
+    else:
+        print("ERROR: Write directory not specified correctly. Hiker %d (%s) not saved." % hiker.identifier, hiker.name)
+    os.chdir(working_dir)
+
 '''
 TODO: method body.
 '''
-def parseHiker(identifier, journal_url):
-    hiker = Hiker(identifier=identifier)
+def parseHikerJournal(hiker, journal_url):
     driver.get(journal_url)
     # TODO: Some hiker's trail journals link to their first entry; most don't.
     # TODO: If the hiker's journal links to the first entry then the below code fails.
@@ -153,47 +188,41 @@ def parseHiker(identifier, journal_url):
         day_mileage_xpath = trail_info_xpath + "/td[3]/span[2]"
         trip_mileage_xpath = trail_info_xpath + "/td[3]/span[4]"
 
-    # TODO: Error when parsing data as there is a difference in pages.
-    # TODO: Page A needs a selection of "../tbody/tr[position()=3]/.." given here: http://www.trailjournals.com/entry.cfm?id=521994
-    # TODO: Page B needs a selection of "../tbody/tr[position()=4]/.." given here: http://www.trailjournals.com/entry.cfm?id=521993
-    # TODO: Resolve this by checking the len(web_object) returned by driver.
-    #       if number <tr> == 3 then grab position()=num_tr-1.
-
     while next_entry_url != last_entry_url:
         try:
             destination = driver.find_element_by_xpath(destination_xpath)
             destination = destination.text
-        except:
+        except Exception:
             # no starting location provided.
-            destination = ''
+            destination = None
             pass
         try:
             start_loc = driver.find_element_by_xpath(start_loc_xpath)
             start_loc = start_loc.text
         except:
             # no starting location provided.
-            start_loc = ''
+            start_loc = None
             pass
         try:
             day_mileage = driver.find_element_by_xpath(day_mileage_xpath)
             day_mileage = float(day_mileage.text)
         except:
             # no day mileage provided.
-            day_mileage = ''
+            day_mileage = None
             pass
         try:
             trip_mileage = driver.find_element_by_xpath(trip_mileage_xpath)
             trip_mileage = float(trip_mileage.text)
         except:
             # no trip mileage provided
-            trip_mileage = ''
+            trip_mileage = None
             pass
         try:
             journal_date = driver.find_element_by_xpath(journal_date_xpath)
             journal_date = journal_date.text
         except:
             # journal entry not dated.
-            journal_date = ''
+            journal_date = None
             pass
         if journal_index != 0:
             # TODO: parse other page content here.
@@ -209,13 +238,7 @@ def parseHiker(identifier, journal_url):
             entry_number += 1
         journal_index += 1
         driver.get(next_entry_url)
-    # TODO: parse the last page content here.
-    hikers.append(hiker)
-    '''
-    output_file = open("hiker-data.json", 'w')
-    json.dump(hiker.journal, output_file)
-    '''
-
+    return hiker
 
 '''
 TODO: function definition.
@@ -236,50 +259,35 @@ def getFirstEntry(hiker_url):
 TODO: method body.
 '''
 def main(args):
+    # main loop checks Data/Hiker_Data for presence of [hiker_id].json file. If file is absent then parse necessary data.
     start_url = "http://www.trailjournals.com/entry.cfm?trailname="
     at_hikers = open("at-hikers.txt", 'r')
-    loop_sentinal = 1
+    loop_sentinel = 1
     # for line in itertools.islice(at_hikers, start=0, stop=1):
     for i, line, in enumerate(iterable=at_hikers, start=0):
-        if i >= loop_sentinal:
+        if i >= loop_sentinel:
             break
         else:
             hiker_url = start_url + line
-            parseHiker(identifier=line,journal_url=hiker_url)
+            hiker = recordHikerInfo(hiker_id=int(line), journal_url=hiker_url)
+            hiker = parseHikerJournal(hiker, journal_url=hiker_url)
+            writeHiker(hiker)
     at_hikers.close()
-    output_file = open("hiker-data.json", 'w')
+
     for hiker in hikers:
+        hiker_dict = {'identifier': hiker.identifier, 'name': hiker.name,
+                      'trail_name': hiker.trail_name, 'direction': hiker.direction,
+                      'start_date': hiker.start_date, 'end_date': hiker.end_date,
+                      'journal': hiker.journal}
+        json_fname = str(hiker.identifier) + ".json"
+        with open(json_fname, 'w') as fp:
+            json.dump(hiker_dict, fp=fp)
         # TODO: figure out how to represent class Hiker as a JSON serializable object.
-        hiker_name = json.dump(hiker.name)
-        hiker_trail_name
+        # hiker_name = json.dump(hiker.name)
         # hiker_json = json.dumps(hiker.__dict__)
         # output_file.write(hiker_json)
     # json.dump(hikers, output_file)
-    output_file.close()
 
-    '''
-    num_hikers = 0
-    start_url = "http://www.trailjournals.com/journals/appalachian_trail/"
-    driver.get(start_url)
-
-    hiker_trs_xpath = "/html/body/table/tbody/tr[4]/td/table/tbody/tr/td[2]/div[2]/table/tbody/tr/td[1]/table/tbody/child::*"
-    hiker_trs = driver.find_elements_by_xpath(hiker_trs_xpath)
-    num_trs_on_page = len(hiker_trs)
-
-    user_table_xpath = \
-        "/html/body/table/tbody/tr[4]/td/table/tbody/tr/td[2]/div[2]/table/tbody/tr/td[1]/table/tbody"
-    hiker_divs_xpath = user_table_xpath + "//tr//td[position()=2]/div"
-    entries_xpath = user_table_xpath + "//tr//td[position()=3]/div[position()=1]/a[position()=1]"
-    hiker_journal_urls = driver.find_elements_by_xpath(entries_xpath)
-    for journal in hiker_journal_urls:
-        journal_url = str(journal.get_attribute("href"))
-        if journal_url not in hiker_identifiers:
-            hiker_identifiers.add(journal_url)
-            # TODO: get the hiker's unique number from the journal_url
-            hiker_identifier = journal_url.split("=")[1]
-            parseHiker(hiker_identifier, journal_url)
-        # print(journal_url)
-    '''
 
 if __name__ == '__main__':
     main(sys.argv)
