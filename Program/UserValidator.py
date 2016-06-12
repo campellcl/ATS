@@ -36,9 +36,6 @@ num_hikers = fileLineCount("at-hikers.txt")
 print("Current Number of Unique AT Hikers Logged: %d" % num_hikers)
 # testDataStore("2.json")
 
-
-
-
 '''
 journal_name_xpath = "/html/body/table/tbody/tr[4]/td/table/tbody/tr/td[2]/div/font"
 start_url = "http://www.trailjournals.com/entry.cfm?trailname="

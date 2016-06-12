@@ -75,6 +75,12 @@ def recordHikerInfo(hiker_id, journal_url):
     hiker_trail_name_xpath = "/html/body/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[2]/td/font[1]"
     hiker_start_date_xpath = "/html/body/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[5]/td[2]/a"
     hiker_end_date_xpath = "/html/body/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[6]/td[2]"
+    hiker_info_xpath = "/html/body/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody"
+    hiker_info_xpath2 = "/html/body/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody"
+    hiker_info_xpath3 = "/html/body/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody"
+
+
+
     try:
         hiker_name = driver.find_element_by_xpath(hiker_name_xpath).text
         hiker_name = str.strip(hiker_name, ' - ')
@@ -89,12 +95,16 @@ def recordHikerInfo(hiker_id, journal_url):
         hiker_trail_name = None
         pass
     try:
+        hiker_start_date_neighbor_xpath = hiker_info_xpath + "//*[contains(text(), 'Started:')]"
+        hiker_start_date_xpath = hiker_start_date_neighbor_xpath + "/following-sibling::td[1]"
+        # hiker_start_date_neighbor = driver.find_element_by_xpath(hiker_start_date_neighbor_xpath)
         hiker_start_date = driver.find_element_by_xpath(hiker_start_date_xpath).text
     except:
         # hiker start date not provided.
         hiker_start_date = None
         pass
     try:
+        hiker_end_date_xpath = hiker_info_xpath + "//*[contains(text(), 'Started:')]/following-sibling::td[1]"
         hiker_end_date = driver.find_element_by_xpath(hiker_end_date_xpath).text
     except:
         # hiker end date not provided.
@@ -162,8 +172,12 @@ def parseHikerJournal(hiker, journal_url):
     # TODO: If the hiker's journal links to the first entry then the below code fails.
     hiker_nav_bar_xpath = "/html/body/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table[1]/tbody/tr[1]/td"
     hiker_nav_bar = driver.find_elements_by_xpath(hiker_nav_bar_xpath)
-    first_entry = driver.find_element_by_xpath(hiker_nav_bar_xpath + "/a[position()=1]")
-    first_entry_url = first_entry.get_attribute("href")
+    try:
+        first_entry = driver.find_element_by_xpath(hiker_nav_bar_xpath + "/a[position()=1]")
+        first_entry_url = first_entry.get_attribute("href")
+    except:
+        hiker.journal = {}
+        return hiker
     # Determine if already on the first entry of the journal:
     if first_entry.text != 'Next':
         driver.get(first_entry_url)
@@ -276,7 +290,10 @@ def main(args):
     at_hikers.close()
 
 if __name__ == '__main__':
+    print("CODER: Resume hiker information validation at Hiker id: 4")
     main(sys.argv)
+    # TODO: Hikers are having email addresses and other extranous information entered in the start_date field.
+    #       TODO: Need to figure out how to dynamically search for text and get following element. Or attempt conversion to python DATE_TIME object.
     # print("Added " + str(len(hiker_identifiers)) + " unique hiker id's")
     # print(hiker_identifiers)
     # timeit(parseHikers(hiker_identifiers))
