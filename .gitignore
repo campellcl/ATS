@@ -51,3 +51,4 @@ Temporary Items
 .idea/modules.xml
 *.xml
 ~$XPath.pptx
+*.json

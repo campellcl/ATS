@@ -68,8 +68,12 @@ class Hiker:
 def recordHikerInfo(hiker_id, journal_url):
     driver.get(journal_url)
     about_url_xpath = "/html/body/table/tbody/tr[4]/td/table/tbody/tr/td[1]/table[1]/tbody/tr/td/table[3]/tbody/tr[4]/td/a"
-    about_url = driver.find_element_by_xpath(about_url_xpath).get_attribute("href")
-    driver.get(about_url)
+    try:
+        about_url = driver.find_element_by_xpath(about_url_xpath).get_attribute("href")
+        driver.get(about_url)
+    except:
+        hiker = Hiker(hiker_id)
+        return hiker
     # Attempt to get hiker information:
     hiker_name_xpath = "/html/body/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[2]/td/font[2]"
     hiker_trail_name_xpath = "/html/body/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[2]/td/font[1]"
