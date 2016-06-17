@@ -20,19 +20,17 @@ hiker_identifiers = set([])
 """
 TODO: class descriptor.
 """
-class Hiker:
-    # TODO: get help overloading the constructor with named variables as in below:
-    '''
-    def __init__(self, identifier, name, trail_name, direction, start_date, end_date, journal):
-        self.identifier = identifier
-        self.name = name
-        self.trail_name = trail_name
-        self.direction = direction
-        self.start_date = start_date
-        self.end_date = end_date
-        self.journal = journal
-    '''
-
+class Hiker(object):
+    """
+    __init__ -Constructor for objects of type Hiker.
+    @param self -A reference to an instance of the Hiker class.
+    @param identifier -A unique hiker identifier read from the at-hikers file.
+    @param name -The hiker's birth name.
+    @param trail_name -The hiker's trail name.
+    @param start_date -The date the hiker supposedly started the trail.
+    @param end_date -The date the hiker has finished (or will finish) the trail.
+    @param journal -The hiker's trail journal.
+    """
     def __init__(self, identifier, name=None, trail_name=None, start_date=None, end_date=None, journal={}):
         self.identifier = identifier
         self.name = name
@@ -41,30 +39,64 @@ class Hiker:
         self.end_date = end_date
         self.journal = journal
 
-    def addJournalEntry(self, entry_number, starting_location, destination, day_mileage, trip_mileage, date):
-        if self.journal == None:
-            self.journal = {'ENO': entry_number, 'dest': destination, 'start_loc': starting_location, 'day_mileage': day_mileage, 'trip_mileage': trip_mileage, 'date': date}
+    """
+    addJournalEntry -Adds a new entry to the hiker's pre-existing trail journal.
+    @param self -A reference to the instance of the Hiker class.
+    @param entry_number -The journal's entry number.
+    @param starting_location -The starting location as detailed in that day's journal entry.
+    @param destination -The desired ending location as detailed in that day's journal entry.
+    @param day_mileage -The day's trip mileage as detailed in that day's journal entry.
+    @param trip_mileage -The total trip mileage as detailed in that day's journal entry.
+    @param date -The date provided for that day's journal entry.
+    """
+    def addJournalEntry(self, entry_number, starting_location, destination, day_mileage, trip_mileage, date, text=None):
+        if self.journal is None:
+            self.journal = {'ENO': entry_number, 'dest': destination, 'start_loc': starting_location, 'day_mileage': day_mileage, 'trip_mileage': trip_mileage, 'date': date, 'text': text}
         else:
-            self.journal[str(entry_number)] = {'dest': destination, 'start_loc': starting_location, 'day_mileage': day_mileage, 'trip_mileage': trip_mileage, 'date': date}
+            self.journal[str(entry_number)] = {'dest': destination, 'start_loc': starting_location, 'day_mileage': day_mileage, 'trip_mileage': trip_mileage, 'date': date, 'text': text}
 
+    """
+    removeJournalEntry -Removes a pre-existing journal entry from the hiker's trail journal.
+    @param self -A reference to the instance of the Hiker class.
+    @param entry_number -The entry number of the journal to be removed.
+    """
     def removeJournalEntry(self, entry_number):
         del self.journal[str(entry_number)]
 
+    """
+    setHikerName -Sets the name associated with this instance of Hiker.
+    @param self -A reference to the instance of the Hiker class.
+    @param hiker_name -The desired birth name to be set.
+    """
     def setHikerName(self, hiker_name):
         self.name = hiker_name
 
+    """
+    """
     def setHikerTrailName(self, trail_name):
         self.trail_name = trail_name
 
+    """
+    """
     def setHikerTrailDirection(self, direction):
         self.direction = direction
 
+    """
+    """
     def setHikerStartDate(self, starting_date):
         self.start_date = starting_date
 
+    """
+    """
     def setHikerEndDate(self, estimated_end_date):
         self.end_date = estimated_end_date
 
+"""
+recordHikerInfo - Scrapes and records identifying hiker information such as name,
+    trail name, start_date, end_date and their unique hiker id.
+@param hiker_id -The hiker's unique identifier.
+@param journal_url -The url to the first entry of the hiker's trail journal.
+"""
 def recordHikerInfo(hiker_id, journal_url):
     driver.get(journal_url)
     about_url_xpath = "/html/body/table/tbody/tr[4]/td/table/tbody/tr/td[1]/table[1]/tbody/tr/td/table[3]/tbody/tr[4]/td/a"
@@ -77,13 +109,7 @@ def recordHikerInfo(hiker_id, journal_url):
     # Attempt to get hiker information:
     hiker_name_xpath = "/html/body/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[2]/td/font[2]"
     hiker_trail_name_xpath = "/html/body/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[2]/td/font[1]"
-    hiker_start_date_xpath = "/html/body/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[5]/td[2]/a"
-    hiker_end_date_xpath = "/html/body/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[6]/td[2]"
     hiker_info_xpath = "/html/body/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody"
-    hiker_info_xpath2 = "/html/body/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody"
-    hiker_info_xpath3 = "/html/body/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody"
-
-
 
     try:
         hiker_name = driver.find_element_by_xpath(hiker_name_xpath).text
@@ -101,7 +127,6 @@ def recordHikerInfo(hiker_id, journal_url):
     try:
         hiker_start_date_neighbor_xpath = hiker_info_xpath + "//*[contains(text(), 'Started:')]"
         hiker_start_date_xpath = hiker_start_date_neighbor_xpath + "/following-sibling::td[1]"
-        # hiker_start_date_neighbor = driver.find_element_by_xpath(hiker_start_date_neighbor_xpath)
         hiker_start_date = driver.find_element_by_xpath(hiker_start_date_xpath).text
     except:
         # hiker start date not provided.
@@ -168,14 +193,13 @@ def writeHiker(hiker):
     os.chdir(working_dir)
 
 '''
-TODO: method body.
+parseHikerJournal -Scrapes and records each journal entry on the website for a given hiker.
+@param hiker -A hiker object already populated with identifying information.
+@param journal_url -The URL of the hiker's journal on the website.
 '''
 def parseHikerJournal(hiker, journal_url):
     driver.get(journal_url)
-    # TODO: Some hiker's trail journals link to their first entry; most don't.
-    # TODO: If the hiker's journal links to the first entry then the below code fails.
     hiker_nav_bar_xpath = "/html/body/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table[1]/tbody/tr[1]/td"
-    hiker_nav_bar = driver.find_elements_by_xpath(hiker_nav_bar_xpath)
     try:
         first_entry = driver.find_element_by_xpath(hiker_nav_bar_xpath + "/a[position()=1]")
         first_entry_url = first_entry.get_attribute("href")
@@ -185,6 +209,7 @@ def parseHikerJournal(hiker, journal_url):
     # Determine if already on the first entry of the journal:
     if first_entry.text != 'Next':
         driver.get(first_entry_url)
+
     last_entry = driver.find_element_by_xpath(hiker_nav_bar_xpath + "/a[position()=2]")
     last_entry_url = last_entry.get_attribute("href")
     next_entry = driver.find_element_by_xpath(hiker_nav_bar_xpath + "/a[position()=1]")
@@ -195,17 +220,21 @@ def parseHikerJournal(hiker, journal_url):
     # check to see if title was provided...
     trail_info_xpath = "/html/body/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table[1]/tbody/tr[4]"
     trail_info_xpath2 = "/html/body/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table[1]/tbody/tr[3]"
+    journal_entry_xpath2 = "/html/body/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table[1]/tbody/tr[5]"
+    journal_entry_xpath = "/html/body/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table[1]/tbody/tr[6]"
     trail_info = driver.find_elements_by_xpath(trail_info_xpath)
     if 'First Previous Next Last' not in trail_info[0].text:
         destination_xpath = trail_info_xpath2 + "/td[2]/span[2]"
         start_loc_xpath = trail_info_xpath2 + "/td[2]/span[4]"
         day_mileage_xpath = trail_info_xpath2 + "/td[3]/span[2]"
         trip_mileage_xpath = trail_info_xpath2 + "/td[3]/span[4]"
+        journal_entry_xpath = journal_entry_xpath2 + "/td/blockquote"
     else:
         destination_xpath = trail_info_xpath + "/td[2]/span[2]"
         start_loc_xpath = trail_info_xpath + "/td[2]/span[4]"
         day_mileage_xpath = trail_info_xpath + "/td[3]/span[2]"
         trip_mileage_xpath = trail_info_xpath + "/td[3]/span[4]"
+        journal_entry_xpath = journal_entry_xpath + "/td/blockquote"
 
     while next_entry_url != last_entry_url:
         try:
@@ -243,6 +272,14 @@ def parseHikerJournal(hiker, journal_url):
             # journal entry not dated.
             journal_date = None
             pass
+        try:
+            journal_entry = driver.find_element_by_xpath(journal_entry_xpath)
+            journal_entry = journal_entry.text
+        except:
+            # journal entry not provided.
+            journal_entry = None
+            pass
+
         if journal_index != 0:
             # TODO: parse other page content here.
             next_entry = driver.find_element_by_xpath(hiker_nav_bar_xpath + "/a[position()=3]")
@@ -250,10 +287,9 @@ def parseHikerJournal(hiker, journal_url):
         else:
             next_entry = driver.find_element_by_xpath(hiker_nav_bar_xpath + "/a[position()=1]")
             next_entry_url = next_entry.get_attribute("href")
-
         # if all fields are blank; don't bother storing.
-        if start_loc != '' or destination != ''or trip_mileage != '' or day_mileage != '':
-            hiker.addJournalEntry(entry_number=entry_number, starting_location=start_loc, destination=destination, day_mileage=day_mileage, trip_mileage=trip_mileage, date=journal_date)
+        if start_loc is not None and destination is not None:
+            hiker.addJournalEntry(entry_number=entry_number, starting_location=start_loc, destination=destination, day_mileage=day_mileage, trip_mileage=trip_mileage, date=journal_date, text=journal_entry)
             entry_number += 1
         journal_index += 1
         driver.get(next_entry_url)
