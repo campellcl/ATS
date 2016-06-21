@@ -12,7 +12,11 @@ import itertools
 from timeit import timeit
 from json import JSONEncoder
 
-driver = webdriver.Firefox()
+ffp = webdriver.FirefoxProfile()
+ffp.set_preference("dom.max_chrome_script_run_time", 0)
+ffp.set_preference("dom.max_script_run_time", 0)
+driver = webdriver.Firefox(firefox_profile=ffp)
+driver.set_script_timeout(0)
 num_hikers = 0
 hikers = []
 hiker_identifiers = set([])
@@ -99,7 +103,9 @@ recordHikerInfo - Scrapes and records identifying hiker information such as name
 """
 def recordHikerInfo(hiker_id, journal_url):
     driver.get(journal_url)
-    about_url_xpath = "/html/body/table/tbody/tr[4]/td/table/tbody/tr/td[1]/table[1]/tbody/tr/td/table[3]/tbody/tr[4]/td/a"
+    sidebar_xpath = "/html/body/table/tbody/tr[4]/td/table/tbody/tr/td[1]/table[1]/tbody/tr/td/table[3]/tbody"
+    about_url_xpath = sidebar_xpath + "//tr//td//*[contains(text(), 'About')]/.."
+    # about_url_xpath = "/html/body/table/tbody/tr[4]/td/table/tbody/tr/td[1]/table[1]/tbody/tr/td/table[3]/tbody/tr[4]/td/a"
     try:
         about_url = driver.find_element_by_xpath(about_url_xpath).get_attribute("href")
         driver.get(about_url)
@@ -146,34 +152,6 @@ def recordHikerInfo(hiker_id, journal_url):
     hiker_identifiers.add(hiker_id)
     return hiker
 
-'''
-TODO: method body.
-'''
-def parseHikers(hiker_journal_urls):
-    for url in hiker_journal_urls:
-        driver.get(url)
-        hiker_nav_bar_xpath = "/html/body/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table[1]/tbody/tr[1]/td"
-        hiker_nav_bar = driver.find_elements_by_xpath(hiker_nav_bar_xpath)
-        first_entry = driver.find_element_by_xpath(hiker_nav_bar_xpath + "/a[position()=1]")
-        last_entry = ""
-        driver.get(first_entry.get_attribute("href"))
-        last_entry = driver.find_element_by_xpath(hiker_nav_bar_xpath + "/a[position()=2]")
-        last_entry_url = last_entry.get_attribute("href")
-        next_entry = driver.find_element_by_xpath(hiker_nav_bar_xpath + "/a[position()=1]")
-        next_entry_url = next_entry.get_attribute("href")
-        entry_number = 0
-        while next_entry_url != last_entry_url:
-            if (entry_number == 0):
-                # TODO: parse first page content here.
-                pass
-            else:
-                # TODO: parse other page content here.
-                next_entry = driver.find_element_by_xpath(hiker_nav_bar_xpath + "/a[position()=3]")
-                next_entry_url = next_entry.get_attribute("href")
-            entry_number += 1
-            driver.get(next_entry_url)
-        # TODO: parse the last page content here.
-
 def writeHiker(hiker):
     hiker_json = {'identifier': hiker.identifier, 'name': hiker.name,
                   'trail_name': hiker.trail_name, 'start_date': hiker.start_date,
@@ -217,11 +195,11 @@ def parseHikerJournal(hiker, journal_url):
     journal_date_xpath = "/html/body/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table[1]/tbody/tr[2]/td/div/font/i"
     entry_number = 0
     journal_index = 0
-    # check to see if title was provided...
     trail_info_xpath = "/html/body/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table[1]/tbody/tr[4]"
     trail_info_xpath2 = "/html/body/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table[1]/tbody/tr[3]"
-    journal_entry_xpath2 = "/html/body/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table[1]/tbody/tr[5]"
     journal_entry_xpath = "/html/body/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table[1]/tbody/tr[6]"
+    journal_entry_xpath2 = "/html/body/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table[1]/tbody/tr[5]"
+
     trail_info = driver.find_elements_by_xpath(trail_info_xpath)
     if 'First Previous Next Last' not in trail_info[0].text:
         destination_xpath = trail_info_xpath2 + "/td[2]/span[2]"
@@ -287,6 +265,7 @@ def parseHikerJournal(hiker, journal_url):
         else:
             next_entry = driver.find_element_by_xpath(hiker_nav_bar_xpath + "/a[position()=1]")
             next_entry_url = next_entry.get_attribute("href")
+
         # if all fields are blank; don't bother storing.
         if start_loc is not None and destination is not None:
             hiker.addJournalEntry(entry_number=entry_number, starting_location=start_loc, destination=destination, day_mileage=day_mileage, trip_mileage=trip_mileage, date=journal_date, text=journal_entry)
@@ -294,21 +273,6 @@ def parseHikerJournal(hiker, journal_url):
         journal_index += 1
         driver.get(next_entry_url)
     return hiker
-
-'''
-TODO: function definition.
-'''
-def isFirstPage(hiker_url):
-    hiker_nav_bar_xpath = "/html/body/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table[1]/tbody/tr[1]/td"
-    first_link = driver.find_element_by_xpath(hiker_nav_bar_xpath + "/a[position()=1]")
-    first_link_url = first_link.get_attribute("href")
-    return first_link.text == 'Next'
-
-def getFirstEntry(hiker_url):
-    # TODO: method body.
-    hiker_nav_bar_xpath = "/html/body/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table[1]/tbody/tr[1]/td"
-    first_entry = driver.find_element_by_xpath(hiker_nav_bar_xpath + "/a[position()=1]")
-    first_entry_url = first_entry.get_attribute("href")
 
 '''
 TODO: method body.
@@ -332,9 +296,3 @@ def main(args):
 if __name__ == '__main__':
     print("CODER: Resume hiker information validation at Hiker id: 4")
     main(sys.argv)
-    # TODO: Hikers are having email addresses and other extranous information entered in the start_date field.
-    #       TODO: Need to figure out how to dynamically search for text and get following element. Or attempt conversion to python DATE_TIME object.
-    # print("Added " + str(len(hiker_identifiers)) + " unique hiker id's")
-    # print(hiker_identifiers)
-    # timeit(parseHikers(hiker_identifiers))
-    # parseHikers(hiker_identifiers)
