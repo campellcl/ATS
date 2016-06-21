@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+</head>
+<body>
+    <div id="script-container">
+        <script type="text/javascript">
+            $(document).ready(function() {
+                console.log("document ready!");
+                initFusionTables();
+            });
+
+            function initFusionTables() {
+                $.get(
+                    "https://www.googleapis.com/fusiontables/v2/tables/1IrUUtabFBL4YuBFOeBPKxcnMafqAKXb2zosmBQkf?key=AIzaSyBCjde_rx_Fe0v4G_vD-uI33M1o9toMF2A",
+                        function(data, status) {
+                            console.log("Data: " + data);
+                            console.log("Status: " + status);
+
+                        }
+                );
+                $.post(
+                    "https://www.googleapis.com/upload/upload/fusiontables/v2/tables/import?uploadType=media",
+                    Content-Type: application/json,
+                    //resume programming here.
+                );
+            }
+        </script>
+    </div>
+</body>
+</html>

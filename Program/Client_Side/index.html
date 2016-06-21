@@ -24,6 +24,37 @@
             <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCjde_rx_Fe0v4G_vD-uI33M1o9toMF2A&callback=initMap">
             </script>
         </div>
+        <div id="at-shelters-fusion-table">
+            <script>
+                function handler(response) {
+                    console.log("TODO: method body.")
+                    console.log(response)
+                }
+            </script>
+            <script id="at-shelters-fusion-table-script" src="https://www.googleapis.com/fusiontables/v2/tables/1IrUUtabFBL4YuBFOeBPKxcnMafqAKXb2zosmBQkf/templates?callback=handler&key=AIzaSyBCjde_rx_Fe0v4G_vD-uI33M1o9toMF2A">
+            </script>
+        </div>
+        <div id="at-hikers-fusion-table">
+            <script>
+                function handler(response) {
+                    console.log("TODO: method body 2.")
+                }
+            </script>
+            <script id="at-shelters-fusion-table-script" src="https://www.googleapis.com/fusiontables/v2/tables/1aWDEAOdaP2-_TIuP_1IGqjurV6n_hXqeHavLQ6z2/templates?callback=handler&key=AIzaSyBCjde_rx_Fe0v4G_vD-uI33M1o9toMF2A">
+            </script>
+            <script type="text/javascript">
+                $(document).ready(init);
+                function init() {
+                    $.get(
+                        "https://www.googleapis.com/fusiontables/v2/tables/1IrUUtabFBL4YuBFOeBPKxcnMafqAKXb2zosmBQkf?key=AIzaSyBCjde_rx_Fe0v4G_vD-uI33M1o9toMF2A", 
+                        function(data, status) {
+                            console.log("Data: " + data);
+                            console.log("Status: " + status);
+                        }
+                    );
+                }
+            </script>
+        </div>
     </div>
 </body>
 </html>
