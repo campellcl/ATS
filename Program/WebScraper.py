@@ -11,10 +11,18 @@ import os.path
 import itertools
 from timeit import timeit
 from json import JSONEncoder
+import scrapinghub as scrapy
 
 ffp = webdriver.FirefoxProfile()
-ffp.set_preference("dom.max_chrome_script_run_time", 0)
-ffp.set_preference("dom.max_script_run_time", 0)
+# quick_java_xpi_path = "C:/Users/Chris/AppData/Local/Temp/tmpn3l2tftm/extensions" + "//quickjava.xpi"
+# ffp.add_extension(extension=quick_java_xpi_path)
+# ffp.set_preference(key="thatoneguydotnet.QuickJava.curVersion", value="2.0.6.1")
+# ffp.set_preference(key="thatoneguydotnet.QuickJava.startupStatus.Images", value=2)
+# ffp.set_preference(key="thatoneguydotnet.QuickJava.startupStatus.AnimatedImage", value=2)
+# ffp.set_preference("dom.max_chrome_script_run_time", 0)
+# ffp.set_preference("dom.max_script_run_time", 0)
+# ffp.set_preference("permissions.default.image", 2)
+# ffp.set_preference("dom.icp.plugins.enabled.libflashplayer.so", 'false')
 driver = webdriver.Firefox(firefox_profile=ffp)
 driver.set_script_timeout(0)
 num_hikers = 0
@@ -152,6 +160,10 @@ def recordHikerInfo(hiker_id, journal_url):
     hiker_identifiers.add(hiker_id)
     return hiker
 
+"""
+writeHiker -Writes the hiker class to a JSON encoded file for retrieval at a later date.
+@param hiker -An instance of the Hiker class, comprised of data to be written to JSON.
+"""
 def writeHiker(hiker):
     hiker_json = {'identifier': hiker.identifier, 'name': hiker.name,
                   'trail_name': hiker.trail_name, 'start_date': hiker.start_date,
@@ -275,7 +287,8 @@ def parseHikerJournal(hiker, journal_url):
     return hiker
 
 '''
-TODO: method body.
+main -The main method for the WebScraper class.
+    @param args -Default command line arguments passed via the system.
 '''
 def main(args):
     # main loop checks Data/Hiker_Data for presence of [hiker_id].json file. If file is absent then parse necessary data.
