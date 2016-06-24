@@ -49,21 +49,45 @@ class HikerValidator(object):
         line_num = 0
         for line in iter(fp):
             if not line_num == 0:
-                self.shelters.append(str.split(line, sep=",")[1])
+                split_string = str.split(line, sep=",")
+                shelter_name = split_string[1]
+                shelter_lon = float(split_string[len(split_string) - 1])
+                shelter_lat = float(split_string[len(split_string) - 2])
+                self.shelters.append({'name': shelter_name, 'lat': shelter_lat, 'lon': shelter_lon})
             line_num += 1
         fp.close()
         # print("Total Number of Shelters: %d" %len(self.shelters))
 
     def geocodeShelters(self):
-        geocoder = GoogleV3()
+        api_key = "AIzaSyBCjde_rx_Fe0v4G_vD-uI33M1o9toMF2A"
+        geocoder = GoogleV3(api_key=api_key)
         # TODO: Geocode the entire csv file using Geopy package. Then begin validation.
-        for shelter in self.shelters:
-            geocoded_shelter = geocoder.reverse("40.782489972, -75.618317351")
-            # TODO: shelter when geocoded is a list of possible locations. Choose one using .contains(substring(Appalachian Trail))
-            print(geocoded_shelter)
-            geocoded_shelter = geocoder.geocode(shelter)
-            print(geocoded_shelter)
+        for dict in self.shelters:
+            query = str(dict['name']) + " Shelter, Appalachian Trail"
+            geocoded_shelter = geocoder.geocode(query=query)
+            if geocoded_shelter is None:
+                query = str(dict['name']) + " shelter"
+                geocoded_shelter = geocoder.geocode(query=query)
+            if geocoded_shelter is None:
+                # TODO: write code to select shelter from list.
+                query = str(dict['lat']) + ", " + str(dict['lon'])
+                geocoded_shelter = geocoder.reverse(query=query)
+                validated = False
+                for i in range(len(geocoded_shelter)):
+                    if "Appalachian Trail" in geocoded_shelter[i].address:
+                        geocoded_shelter = geocoded_shelter[i]
+                        break
+                    if i == len(geocoded_shelter) - 1:
+                        geocoded_shelter = None
+            if geocoded_shelter is None:
+                print("GEOCODING ERROR: Shelter '%s' not found by Geocoder!" %dict['name'])
+            else:
+                print(geocoded_shelter)
 
+    """
+    validateShelters -
+        @param hiker -The hiker object whose journal is to be geocoded.
+    """
     def validateShelters(self, hiker):
         # compare every shelter by converting the google fusion table data to lower case string and then execute substring comparison.
         # delete the entries that are unvalidated? Might still need to retain for distance estimation using day mileage.
@@ -71,7 +95,8 @@ class HikerValidator(object):
             self.populateShelters()
             self.geocodeShelters()
         hiker_journal = hiker['journal']
-        geolocator = GoogleV3()
+        api_key = "AIzaSyBCjde_rx_Fe0v4G_vD-uI33M1o9toMF2A"
+        geolocator = GoogleV3(api_key=api_key)
         for i in range(len(hiker_journal) - 1):
             start_location = hiker_journal[str(i)]['start_loc']
             dest_location = hiker_journal[str(i)]['dest']
@@ -86,6 +111,10 @@ class HikerValidator(object):
                     # Shelter validated to be an entry in the AT_Shelters.csv file.
                     hiker_journal[str(i)]['validated'] = True
 
+"""
+fileLineCount -Counts the number of lines in a given file.
+    @param fname -The name of the file from which to count line numbers.
+"""
 def fileLineCount(fname):
     with open(fname) as file:
         for i, l in enumerate(file):
@@ -93,8 +122,8 @@ def fileLineCount(fname):
         return i + 1
 
 '''
-    testDataStore -Performs data extraction on the written json file to ensure integrity.
-    :param json_fname - The name of the json file to extract data from and validate.
+testDataStore -Performs data extraction on the written json file to ensure integrity.
+    @param json_fname - The name of the json file to extract data from and validate.
 '''
 def testDataStore(json_fname):
     storage_dir = "C:/Users/Chris/Documents/GitHub/ATS/Data/Hiker_Data"
