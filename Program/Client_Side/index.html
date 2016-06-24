@@ -12,13 +12,37 @@
     <div id="main-container">
         <div id="map">
             <script>
+                var map;
                 function initMap() {
                     var mapOptions = {
                         center: {lat: 34.6271827, lng: -84.1938217},
                         zoom: 15,
                         mapTypeId: google.maps.MapTypeId.ROADMAP
                     };
-                    var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+                    map = new google.maps.Map(document.getElementById('map'), mapOptions);
+                    initOverlay();
+                }
+                function initOverlay() {
+
+                    var infoWindow = new google.maps.InfoWindow();
+                    // Initialize the shelter overlay.
+                    var shelterLayer = new google.maps.FusionTablesLayer({
+                        query: {
+                            select: 'LATITUDE',
+                            from: '1IrUUtabFBL4YuBFOeBPKxcnMafqAKXb2zosmBQkf'
+                        },
+                        map: map,
+                        suppressInfoWindows: true
+                    });
+                    // Initialize the centerline overlay.
+                    var centerlineLayer = new google.maps.FusionTablesLayer({
+                        query: {
+                            select: 'geometry',
+                            from: '1sWS1ydRkfLOprAw__Zh7sKhacoMtJikEHH3kDB_f'
+                        },
+                        map: map,
+                        suppressInfoWindows: true
+                    });
                 }
             </script>
             <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCjde_rx_Fe0v4G_vD-uI33M1o9toMF2A&callback=initMap">
@@ -40,7 +64,7 @@
                     console.log("TODO: method body 2.")
                 }
             </script>
-            <script id="at-shelters-fusion-table-script" src="https://www.googleapis.com/fusiontables/v2/tables/1aWDEAOdaP2-_TIuP_1IGqjurV6n_hXqeHavLQ6z2/templates?callback=handler&key=AIzaSyBCjde_rx_Fe0v4G_vD-uI33M1o9toMF2A">
+            <script id="at-hikers-fusion-table-script" src="https://www.googleapis.com/fusiontables/v2/tables/1aWDEAOdaP2-_TIuP_1IGqjurV6n_hXqeHavLQ6z2/templates?callback=handler&key=AIzaSyBCjde_rx_Fe0v4G_vD-uI33M1o9toMF2A">
             </script>
             <script type="text/javascript">
                 $(document).ready(init);
