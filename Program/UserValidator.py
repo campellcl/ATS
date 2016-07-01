@@ -41,7 +41,9 @@ class HikerValidator(object):
                         hiker_data = json.load(hiker_file)
                         # pprint(hiker_data)
                         self.validateHiker(hiker_data)
-
+    """
+    populateShelters -Updates self.shelters to contain the list of pre-recorded shelter names and locations.
+    """
     def populateShelters(self):
         self.shelters = []
         at_shelter_path = "C:/Users/Chris/Documents/GitHub/ATS/Data/AT_Conservancy_Data/AT_Shelters/AT_Shelters.csv"
@@ -58,6 +60,9 @@ class HikerValidator(object):
         fp.close()
         # print("Total Number of Shelters: %d" %len(self.shelters))
 
+    """
+    geocodeShelters -Geocodes the shelters stored in self.shelters using Geopy and Google Maps Geocoding API
+    """
     def geocodeShelters(self):
         api_key = "AIzaSyBCjde_rx_Fe0v4G_vD-uI33M1o9toMF2A"
         geocoder = GoogleV3(api_key=api_key)
@@ -85,6 +90,32 @@ class HikerValidator(object):
                 print(geocoded_shelter)
 
     """
+    plotPoint -Plots a point on the google map.
+    @param hiker -The decoded JSON representation of the hiker.
+    @param location -The location to be recorded.
+    @param
+    """
+    def plotPoint(self, hiker, location, date):
+        driver = webdriver.Firefox(firefox_profile=None)
+        start_url = "Client_Side/index.html"
+        driver.get(start_url)
+
+    """
+    plotHikerByShelter -Plots the location of a hiker using shelter coordinates.
+        @param hiker -The JSON decoded hiker object whose journal is to be geocoded.
+    """
+    def plotHikerByShelter(self, hiker):
+        hiker_journal = hiker['journal']
+        for i in range(len(hiker_journal) - 1):
+            start_location = hiker_journal[str(i)]['start_loc']
+            dest_location = hiker_journal[str(i)]['dest']
+            date = hiker_journal[str(i)]['date']
+            for shelter in self.shelters:
+                if str.lower(start_location) in shelter:
+                    # Hiker at this shelter.
+                    self.plotPoint(hiker=hiker['id'],location=start_location,date=date)
+
+    """
     validateShelters -
         @param hiker -The hiker object whose journal is to be geocoded.
     """
@@ -100,6 +131,7 @@ class HikerValidator(object):
         for i in range(len(hiker_journal) - 1):
             start_location = hiker_journal[str(i)]['start_loc']
             dest_location = hiker_journal[str(i)]['dest']
+            # TODO: figure out how to handle missing data. What to do with repeated shelters not in the database?
             is_valid_start = False
             is_valid_end = False
             start_loc = geolocator.geocode(query=start_location)
