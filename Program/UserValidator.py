@@ -12,9 +12,18 @@ from pprint import pprint
 from geopy import geocoders
 from geopy.geocoders import GoogleV3
 
+"""
+HikerValidator -Performs all necessary validation for a given hiker and their journal of geocoded shelters.
+@Author: Chris Campell
+@Version: 7/8/2016
+"""
 class HikerValidator(object):
     working_dir = os.getcwd()
 
+    """
+    __init__ -Constructor for objects of type HikerValidator.
+    @param hiker_data_dir -The directory housing the JSON encoded hiker data to be validated.
+    """
     def __init__(self, hiker_data_dir):
         if hiker_data_dir is None:
             print("ERROR: A directory must be provided for hiker validation")
@@ -24,9 +33,16 @@ class HikerValidator(object):
             self.hiker_data_dir = hiker_data_dir
         self.shelters = None
 
+    """
+    validateHiker -Performs all validation code for a single hiker.
+    @param hiker -The hiker to be validated.
+    """
     def validateHiker(self, hiker):
         self.validateShelters(hiker)
 
+    """
+    validateHikers -Performs all validation code on all hikers.
+    """
     def validateHikers(self):
         storage_location = "C:/Users/Chris/Documents/GitHub/ATS/Data/Hiker_Data"
 
@@ -181,10 +197,15 @@ at_hikers.close()
 user_dump.close()
 '''
 
+"""
+main -Performs geolocation and validation on all necessary hiker information.
+@param cmd_args -Default command line arguments provided by the system.
+"""
 def main(cmd_args):
     num_hikers = fileLineCount("at-hikers.txt")
     print("Current Number of Unique AT Hikers Logged: %d" % num_hikers)
     hikerValidator = HikerValidator("C:/Users/Chris/Documents/GitHub/ATS/Data/Hiker_Data")
     hikerValidator.validateHikers()
+
 if __name__ == '__main__':
     main(argv)

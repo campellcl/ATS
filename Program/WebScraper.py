@@ -83,21 +83,33 @@ class Hiker(object):
         self.name = hiker_name
 
     """
+    setHikerTrailname -Sets the trail name associated with this instance of Hiker.
+    @param self -A reference to the instance of the Hiker class.
+    @param trail_name -The desired trail name to be set.
     """
     def setHikerTrailName(self, trail_name):
         self.trail_name = trail_name
 
     """
+    setHikerTrailDirection -Sets the direction (northbound vs southbound) associated with this instance of Hiker.
+    @param self -A reference to the instance of the Hiker class.
+    @param direction -The direction to be set (northbound vs. southbound).
     """
     def setHikerTrailDirection(self, direction):
         self.direction = direction
 
     """
+    setHikerStartDate -Sets the date that this instance of Hiker attempted to the AT on.
+    @param self -A reference to the instance of the Hiker class.
+    @param starting_date -The date the hiker started the AT.
     """
     def setHikerStartDate(self, starting_date):
         self.start_date = starting_date
 
     """
+    setHikerEndDate -Sets the end date (purpose unknown) associated with this instance of Hiker.
+    @param self -A reference to the instance of the Hiker class.
+    @param estimated_end_date -The estimated? date the hiker will finish the AT.
     """
     def setHikerEndDate(self, estimated_end_date):
         self.end_date = estimated_end_date

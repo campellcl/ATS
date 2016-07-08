@@ -71,6 +71,10 @@ def convertToCSV(hiker_journal):
         # value['dest'] = value['dest'].replace(",", "")
     return csv_hiker_journal
 
+"""
+main -Records every hiker in the hikers.csv file. Adheres to the Google Fusion Table CSV formatting style.
+@param cmd_args -Default command line arguments supplied by the system.
+"""
 def main(cmd_args):
     storage_location = "C:/Users/Chris/Documents/GitHub/ATS/Data/Hiker_Data"
     if not isValidStorageLocation(storage_location=storage_location):

@@ -125,10 +125,17 @@ class ATS(object):
     """
     """
     def writeShelterStats(self):
-        outputfile_name = "ATS.txt"
+        outputfile_name = "ATS.csv"
         with open(outputfile_name, 'w') as fp:
+            fp.write("shelter,number,lat,lon")
             for key, value in self.shelters.items():
-                fp.write("Shelter: " + str(key) + ", Seen: " + str(value['num']) + " times.\n")
+                try:
+                    lat = value['lat']
+                    lon = value['lon']
+                except:
+                    lat = "None"
+                    lon = "None"
+                fp.write("\"" + str(key) + "\"," + str(value['num']) + "," + str(value['lat']) + "," + str(value['lon']))
 
 
     """

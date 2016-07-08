@@ -19,10 +19,6 @@ class ScrapyWebScraper(object):
             hiker_fname = storage_location + "/" + str.strip(line, '\n') + ".json"
             if not os.path.isfile(hiker_fname):
                 hiker_url = start_url + line
-                hiker_info = Selector(base_url=hiker_url)
-                hiker = recordHikerInfo(hiker_id=int(line), journal_url=hiker_url)
-                hiker = parseHikerJournal(hiker, journal_url=hiker_url)
-                writeHiker(hiker)
             else:
                 print("Hiker id: %d has already been logged." % int(line))
         at_hikers.close()
