@@ -13,7 +13,7 @@ from timeit import timeit
 from json import JSONEncoder
 import scrapinghub as scrapy
 
-ffp = webdriver.FirefoxProfile()
+# ffp = webdriver.FirefoxProfile()
 # quick_java_xpi_path = "C:/Users/Chris/AppData/Local/Temp/tmpn3l2tftm/extensions" + "//quickjava.xpi"
 # ffp.add_extension(extension=quick_java_xpi_path)
 # ffp.set_preference(key="thatoneguydotnet.QuickJava.curVersion", value="2.0.6.1")
@@ -23,8 +23,7 @@ ffp = webdriver.FirefoxProfile()
 # ffp.set_preference("dom.max_script_run_time", 0)
 # ffp.set_preference("permissions.default.image", 2)
 # ffp.set_preference("dom.icp.plugins.enabled.libflashplayer.so", 'false')
-driver = webdriver.Firefox(firefox_profile=ffp)
-driver.set_script_timeout(0)
+driver = webdriver.Firefox()
 num_hikers = 0
 hikers = []
 hiker_identifiers = set([])
