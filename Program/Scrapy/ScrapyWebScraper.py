@@ -13,7 +13,7 @@ from scrapy import signals
 from twisted.internet import reactor
 from scrapy.selector import Selector
 from scrapy.http import HtmlResponse
-from scrapy.spiders import BaseSpider
+from scrapy.spiders import Spider
 from scrapy.spiders import CrawlSpider, Rule
 from scrapy.selector import HtmlXPathSelector
 from scrapy.crawler import Crawler, CrawlerProcess
@@ -42,25 +42,34 @@ HikerInfoScraper(BaseSpider) -A scrapy.spiders.BaseSpider web spider which obtai
 @Author: Chris Campell
 @Version: 7/14/2016
 """
-class HikerInfoScraper(BaseSpider):
+class HikerInfoScraper(Spider):
     name = "hiker_info_base_spider"
     allowed_domains = ['www.trailjournals.com', 'www.trailjournals.com/about.cfm?']
+    start_urls = ["http://www.trailjournals.com/about.cfm?trailname=860"]
 
-    '''
-    def __init__(self, *args, **kwargs):
-        print(__name__)
-        if __name__ == '__main__':
-            start_urls = kwargs.get('start_url')
-            self.start_urls = start_urls
-            super(HikerInfoScraper, self).__init__(*args, start_urls)
-    '''
+    def get_hiker_urls(self):
+        hiker_urls = []
+        start_url = "http://www.trailjournals.com/about.cfm?trailname="
+        at_hikers = open("at-hikers.txt", 'r')
+        storage_location = "C:/Users/Chris/Documents/GitHub/ATS/Data/Hiker_Data"
+        for line in iter(at_hikers):
+            line = line.strip('\n')
+            hiker_fname = storage_location + "/" + line + ".json"
+            if not os.path.isfile(hiker_fname):
+                hiker_url = start_url + line
+                hiker_urls.append(hiker_url)
+        at_hikers.close()
+        return hiker_urls
 
+    def start_requests(self):
+        for url in self.get_hiker_urls():
+            yield Request(url, self.parse)
 
     """
     parse -A method that is part of the Scrapy Response Architecture Cycle (RAC), which
-     yields all retrieved hiker information.
-     @param response -The response object returned by the RAC.
-     @yield hiker -A sub-classed scrapy.Item which functions as a dictionary and houses hiker information.
+    yields all retrieved hiker information.
+    @param response -The response object returned by the RAC.
+    @yield hiker -A sub-classed scrapy.Item which functions as a dictionary and houses hiker information.
     """
     def parse(self, response):
         print("Response received: %s" % response)
@@ -77,11 +86,20 @@ class HikerInfoScraper(BaseSpider):
         hiker_name = Selector(response=response).xpath(hiker_name_xpath).extract()[0]
         hiker_name_start = str.find(hiker_name, "-", 0, len(hiker_name))
         hiker_name_end = str.find(hiker_name, "<", hiker_name_start, len(hiker_name))
-        hiker_name = hiker_name[hiker_name_start + 2:hiker_name_end]
+        hiker_name = hiker_name[hiker_name_start + 1:hiker_name_end]
+        hiker_name = str.strip(hiker_name, " ")
         hiker['name'] = hiker_name
         hiker['journal_url'] = str.replace(hiker['about_url'], "about", "entry")
         yield hiker
 
+    '''
+    def __init__(self, *args, **kwargs):
+        print(__name__)
+        if __name__ == '__main__':
+            start_urls = kwargs.get('start_url')
+            self.start_urls = start_urls
+            super(HikerInfoScraper, self).__init__(*args, start_urls)
+    '''
 
 class HikerInfoWriterPipeline(object):
     def __init__(self):
@@ -110,6 +128,7 @@ class ScrapyWebScraper(CrawlSpider):
     @param response -The response object returned by the spider.
     """
     def parse_items(self, response):
+        print("parsing hiker info")
         # Parsing Hiker Info..
         hiker = self.parse_hiker_info(response)
 
@@ -133,63 +152,57 @@ class ScrapyWebScraper(CrawlSpider):
         hiker['about_url'] = about_url
         yield hiker
 
-    '''
-    def parse_hiker_info(self, response):
-        print("Response received: %s" % response)
-        print("Parsing Hiker info from response: %s" % response)
-        hiker = HikerItem()
-        hiker_trail_name_xpath = "/html/body/table//tr[4]/td/table/tr//td[2]/table//tr[2]/td//font[1]/b"
-        hiker_trail_name = Selector(response=response).xpath(hiker_trail_name_xpath).extract()[0]
-        hiker_trail_name_start = str.find(hiker_trail_name, ">", 0, len(hiker_trail_name))
-        hiker_trail_name_end = str.find(hiker_trail_name, "<", hiker_trail_name_start, len(hiker_trail_name))
-        hiker_trail_name = hiker_trail_name[hiker_trail_name_start + 1:hiker_trail_name_end]
-        hiker['trail_name'] = hiker_trail_name
-        hiker['about_url'] = response.url
-        hiker_name_xpath = "/html/body/table//tr[4]/td/table/tr//td[2]/table//tr[2]/td//font[2]"
-        hiker_name = Selector(response=response).xpath(hiker_name_xpath).extract()[0]
-        hiker_name_start = str.find(hiker_name, "-", 0, len(hiker_name))
-        hiker_name_end = str.find(hiker_name, "<", hiker_name_start, len(hiker_name))
-        hiker_name = hiker_name[hiker_name_start + 2:hiker_name_end]
-        hiker['name'] = hiker_name
-        hiker['journal_url'] = str.replace(hiker['about_url'], "about", "entry")
-        print("Preliminary Hiker Info Recorded.")
-        print("Requesting External (Allowed) Response: %s" % hiker['journal_url'])
-        return hiker
-    '''
-
     def parse_hiker_journal(self, response, hiker):
         print("Parsing Hiker Journal...")
 
 """
+HikerJournalScraper -A Scrapy CrawlSpider which scrapes and stores hiker trail journal information.
+@Author: Chris Campell
+@Version: 7/15/2016
+
 """
-def get_hiker_urls():
-    hiker_urls = []
-    start_url = "http://www.trailjournals.com/entry.cfm?trailname="
-    at_hikers = open("at-hikers.txt", 'r')
-    storage_location = "C:/Users/Chris/Documents/GitHub/ATS/Data/Hiker_Data"
-    for line in iter(at_hikers):
-        line = line.strip('\n')
-        hiker_fname = storage_location + "/" + line + ".json"
-        if not os.path.isfile(hiker_fname):
-            hiker_url = start_url + line
-            hiker_urls.append(hiker_url)
-    at_hikers.close()
-    return hiker_urls
+class HikerJournalScraper(CrawlSpider):
+    name = "hiker_journal_scraper"
+    allowed_domains = ['www.trailjournals.com', 'www.trailjournals.com/about.cfm?', 'www.trailjournals.com/entry.cfm?']
+    start_urls = ["http://www.trailjournals.com/about.cfm?trailname=860"]
+
+    def get_hiker_urls(self):
+        hiker_urls = []
+        start_url = "http://www.trailjournals.com/entry.cfm?trailname="
+        at_hikers = open("at-hikers.txt", 'r')
+        storage_location = "C:/Users/Chris/Documents/GitHub/ATS/Data/Hiker_Data"
+        for line in iter(at_hikers):
+            line = line.strip('\n')
+            hiker_fname = storage_location + "/" + line + ".json"
+            if not os.path.isfile(hiker_fname):
+                hiker_url = start_url + line
+                hiker_urls.append(hiker_url)
+        at_hikers.close()
+        return hiker_urls
+
+    def start_requests(self):
+        for url in self.get_hiker_urls():
+            yield Request(url, self.parse_item)
+
+    def parse_item(self, response):
+        print("Response received: %s" % response)
+        print("Parsing Hiker info from response: %s" % response)
+
 
 def main(cmd_args):
     settings = get_project_settings()
-    settings.set('ITEM_PIPELINES', {'__main__.HikerInfoWriterPipeline': 0})
+    '''
+    settings.set('ITEM_PIPELINES', {'__main__.HikerInfoWriterPipeline': 1})
     crawler = CrawlerProcess(settings=settings)
-    # crawler = CrawlerProcess(get_project_settings())
-    hiker_urls = get_hiker_urls()
     spider = HikerInfoScraper()
-    crawler.crawl(spider, start_url=hiker_urls)
+    crawler.crawl(spider, domain="http://www.trailjournals.com")
     crawler.start()
-    # process.crawl(HikerInfoScraper(start_url=hiker_urls), domain="http://www.trailjournals.com")
     '''
-    process.crawl(ScrapyWebScraper, domain="http://www.trailjournals.com")
-    process.start()
-    '''
+    settings.set('ITEM_PIPELINES', {'__main__.HikerJournalWriterPipeline': 2})
+    crawler = CrawlerProcess(settings=settings)
+    spider = HikerJournalScraper()
+    crawler.crawl(spider, domain="http://www.trailjournals.com")
+    crawler.start()
 
 if __name__ == '__main__':
     main(sys.argv)

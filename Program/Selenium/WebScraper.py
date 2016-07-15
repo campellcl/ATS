@@ -7,6 +7,7 @@ TODO: file description
 import sys
 import json
 from selenium import webdriver
+
 import os.path
 import itertools
 from timeit import timeit
