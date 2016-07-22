@@ -11,12 +11,12 @@
 <body>
     <div id="main-container">
         <div id="map">
-            <script>
+            <script id="map-script">
                 var map;
                 function initMap() {
                     var mapOptions = {
                         center: {lat: 34.6271827, lng: -84.1938217},
-                        zoom: 15,
+                        zoom: 10,
                         mapTypeId: google.maps.MapTypeId.ROADMAP
                     };
                     map = new google.maps.Map(document.getElementById('map'), mapOptions);
@@ -25,15 +25,7 @@
                 function initOverlay() {
 
                     var infoWindow = new google.maps.InfoWindow();
-                    // Initialize the shelter overlay.
-                    var shelterLayer = new google.maps.FusionTablesLayer({
-                        query: {
-                            select: 'LATITUDE',
-                            from: '1IrUUtabFBL4YuBFOeBPKxcnMafqAKXb2zosmBQkf'
-                        },
-                        map: map,
-                        suppressInfoWindows: true
-                    });
+
                     // Initialize the centerline overlay.
                     var centerlineLayer = new google.maps.FusionTablesLayer({
                         query: {
@@ -76,6 +68,52 @@
                             console.log("Status: " + status);
                         }
                     );
+                }
+            </script>
+        </div>
+        <div id="dev-controls">
+            <button id="display-shelter-layer-button" type="button">Display Shelters</button>
+            <button id="display-hiker-start-layer-button" type="button">Display Hiker Start Location Layer</button>
+            <script type="text/javascript" id="init-hiker-layers-script">
+                init_shelter_button_pressed = false;
+                init_hiker_button_pressed = false;
+                $("button").click(function() {
+                    console.log(this.id + " button was pressed.");
+                    if (this.id == "display-shelter-layer-button") {
+                        var shelterLayer = new google.maps.FusionTablesLayer({
+                            query: {
+                                select: 'lat',
+                                from: '1pyLD00bTsB_lBIQtxnOmC_-pfEtjrJJzw0q7PNAJ'
+                            },
+                            map: map,
+                            suppressInfoWindows: true
+                        });
+                    } else if (this.id == "display-hiker-start-layer-button") {
+                        //Init Hiker Start Location Layer
+                        var hiker_start_layer = new google.maps.FusionTablesLayer({
+                            query: {
+                                select: 'start_lat',
+                                from: '1hDVF1OpgMuSUbWc138-Am7BoVmNjubjfod0AalgH'
+                            },
+                            map: map,
+                            heatmap: {
+                                enabled: true
+                            },
+                            suppressInfoWindows: false
+                        });
+                    }
+                });
+
+
+                function buttonClick(event) {
+                    console.log("Button Number: " + event.button.id + " was pressed.")
+                    if (event.button.id == "init-hiker-layers-button") {
+                        console.log("Adding Hiker Starting Location Layer");
+
+                    } else if (event.button.id == "init-shelter-layer-button") {
+                        // Initialize the shelter overlay.
+
+                    }
                 }
             </script>
         </div>
