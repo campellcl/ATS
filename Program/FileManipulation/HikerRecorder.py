@@ -10,14 +10,6 @@ import json
 import copy
 from collections import OrderedDict
 
-class HikerRecorder(object):
-
-    def __init__(self):
-        pass
-
-    def writeHiker(self, output_file):
-        pass
-
 """
 sortHikerJournal -Takes an unsorted hiker trail journal and returns a journal sorted by entry number.
 @param hiker_journal -An unsorted hiker journal dictionary.
@@ -97,14 +89,15 @@ def main(cmd_args):
                     hiker_journal = sortHikerJournal(hiker_journal=hiker_journal)
                     hiker_journal = convertToCSV(hiker_journal)
                     for key, value in hiker_journal.items():
-                        hiker_csv.write(str(hiker_id) + "," + str(key) + "," + value['date'] + "," + value['start_loc'] + "," + value['dest'] + "," + str(value['day_mileage']) + "," + str(value['trip_mileage']) + "\n")
+                        hiker_csv.write(str(hiker_id) + "," + str(key) + "," + value['date'] + ","
+                                        + value['start_loc'] + "," + value['dest'] + ","
+                                        + str(value['day_mileage']) + "," + str(value['trip_mileage']) + "\n")
                 else:
                     pass
         else:
             print("HIKER RECORDER: Hiker File: %s not found." % hiker_fname)
     hiker_csv.close()
     at_hikers.close()
-
 
 if __name__ == '__main__':
     main(sys.argv)

@@ -87,7 +87,7 @@ class ShelterCombinator(object):
     """
     def writeData(self):
         print("SHELTER COMBINATOR: Writing Combined Shelter Data...")
-        fp = open("my_at_shelters.csv", 'w')
+        fp = open("validated_shelters.csv", 'w')
         i = 0
         for key, value in self.shelters.items():
             if i == 0:
