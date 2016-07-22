@@ -1,488 +1,488 @@
-shelter,data_set,lat,lon,type
-Wawayanda,ATC,41.202216,-74.398137,Log/Lumber
-West Mountain,ATC,41.282364,-74.009637,Stone
-Pochuck Mountain,ATC,41.271260,-74.515345,Other
-Zealand Falls Hut,TNL,44.195830,-71.494310,Hut
-Pecks Corner,ATC,35.650753,-83.308673,Stone/Log
-Chestnut Knob,ATC,37.057686,-81.399556,Stone
-Helvey's Mill,ATC,37.130706,-81.103144,Lumber
-Carl A. Newhall Lean-to,TNL,45.531060,-69.315130,Lean-to
-Spring Mountain,ATC,35.951714,-82.790282,Log/Lumber
-Tumbling Run,ATC,39.804820,-77.478376,Lumber
-Morgan Stewart Memorial Shelter,TNL,41.564540,-73.691700,Shelter
-Pass Mountain Hut,TNL,38.676600,-78.318900,Hut
-Leroy A. Smith,ATC,40.839390,-75.359780,Log
-Overmountain Shelter,TNL,36.123490,-82.054290,Shelter
-Laurel Creek,ATC,37.358896,-80.420894,Post_&_Beam
-Hall Mountain Lean-to,TNL,44.700790,-70.824730,Lean-to
-Groundhog Creek Shelter,TNL,35.781840,-83.026320,Shelter
-Wilson Creek Shelter,TNL,37.419360,-79.785580,Shelter
-Whitley Gap Shelter,TNL,34.712500,-83.834280,Shelter
-Campbell Shelter,TNL,37.390820,-80.029220,Shelter
-Pickle Branch Shelter,TNL,37.380160,-80.184600,Shelter
-Standing Indian Shelter,TNL,35.041970,-83.548060,Shelter
-Stony Brook,ATC,43.691870,-72.730766,Stick_w/Lumber_sidng
-Birch Run Shelters,TNL,39.985120,-77.419430,Shelter
-Deer Park,ATC,35.875884,-82.861367,Log
-Happy Hill Shelter,TNL,43.723990,-72.365240,Shelter
-Mountaineer Falls,ATC,36.220300,-81.985300,Unknown
-Bascom Lodge,TNL,42.636860,-73.167360,Unknown
-Wayah Bald,ATC,35.187702,-83.562139,Log/Lumber
-Stratton Pond Shelter,TNL,43.100500,-72.963550,Shelter
-Story Spring,ATC,43.050463,-73.012923,Stick_w/Lumber_sidng
-Antietam Shelter,TNL,39.793800,-77.482570,Shelter
-Quarry Gap,ATC,39.931963,-77.486690,Log/Lumber
-Cloud Pond Lean-to,TNL,45.418040,-69.353220,Lean-to
-Bearfence Mountain Hut,TNL,38.444090,-78.470410,Hut
-Mt. Algo Lean-to,TNL,41.731800,-73.495810,Lean-to
-Pickle Branch,ATC,37.380090,-80.184820,Log w/siding
-Blood Mountain,ATC,34.739910,-83.937520,Stone
-Harpers Creek Shelter,TNL,37.856190,-79.000500,Shelter
-Clarendon Shelter,TNL,43.523540,-72.912570,Shelter
-Jenny Knob Shelter,TNL,37.155040,-80.980130,Shelter
-Long Pond Lean-to,ATC,45.421148,-69.410230,Log/Lumber
-Little Bigelow Lean-to,TNL,45.139170,-70.191150,Lean-to
-Flint Mountain,ATC,36.034770,-82.596780,Unknown
-Curly Maple Gap,ATC,36.104229,-82.397012,Cinder_Block
-George W. Outerbridge,ATC,40.782490,-75.618317,Log
-Leeman Brook Lean-to,TNL,45.351510,-69.498770,Lean-to
-Ensign Cowall Shelter,TNL,39.631020,-77.555660,Shelter
-War Spur Shelter,TNL,37.397570,-80.473820,Shelter
-Bemis Mountain Lean-to,TNL,44.810180,-70.755880,Lean-to
-Icewater Spring,ATC,35.629756,-83.386280,Stone/Log
-Eckville Shelter,TNL,40.633750,-75.957890,Shelter
-Sasafras Gap,ATC,35.330766,-83.666998,Stick_w/ply_siding
-Lost Mountain Shelter,TNL,36.644190,-81.655920,Shelter
-Niday Shelter,TNL,37.387650,-80.264030,Shelter
-Cornelius Creek Shelter,TNL,37.494010,-79.547030,Shelter
-Curley Maple Gap Shelter,TNL,36.104330,-82.396840,Shelter
-Jim & Molly Denton,ATC,38.890030,-78.083350,Stick_w/T1_siding
-Walnut Mountain,ATC,35.836408,-82.936630,Log
-Double Springs Shelter,TNL,36.509110,-81.986060,Shelter
-Niday,ATC,37.387645,-80.264229,Log w/siding
-Johns Hollow Shelter,TNL,37.612920,-79.391780,Shelter
-Minerva Hinchey,ATC,43.487880,-72.925020,Other
-Watauga Lake Shelter,TNL,36.313980,-82.129400,Shelter
-Springer Mountain,ATC,34.629337,-84.192779,Post_&_Beam
-Eliza Brook Campsite Shelter,TNL,44.100740,-71.741820,Shelter
-David Lesser Shelter,TNL,39.227230,-77.779090,Shelter
-Hexacuba,ATC,43.876258,-72.027344,Log
-East Branch Lean-to,TNL,45.596760,-69.198160,Lean-to
-Pleasant Pond Lean-to,TNL,45.271190,-69.916750,Lean-to
-Stratton Pond,ATC,43.100531,-72.964509,Post_&_Beam
-The Hemlocks Lean-to,TNL,42.109680,-73.428650,Lean-to
-Black Gap Shelter,TNL,34.617680,-84.198710,Shelter
-Gren Anderson Shelter,TNL,41.199480,-74.752640,Shelter
-Little Rock Pond Shelter,TNL,43.404080,-72.953150,Shelter
-Pico Camp,ATC,43.638930,-72.831500,Unknown
-Greenleaf Hut,TNL,44.160240,-71.660240,Hut
-Bailey Gap Shelter,TNL,37.400950,-80.577020,Shelter
-Velvet Rocks,ATC,43.702583,-72.265210,Timber_Frame
-Hawk Mountain,ATC,34.665910,-84.136402,Post_&_Beam
-Iron Mountain,ATC,36.435320,-81.991110,Unknown
-Vandeventer,ATC,36.366960,-82.058896,Cinder_Block
-Rocky Run Shelter,TNL,39.460950,-77.630870,Shelter
-Beaver Brook Shelter,TNL,44.033040,-71.811320,Shelter
-Seth Warner,ATC,42.772159,-73.137283,Stick_w/Lumber_sidng
-Moreland Gap,ATC,36.220062,-82.088476,Cinder_Block
-Velvet Rocks Shelter,TNL,43.702510,-72.264720,Shelter
-Lonesome Lake Hut,TNL,44.138420,-71.703120,Hut
-Bald Mountain,ATC,36.000070,-82.478230,Stick_w/ply_siding
-Horns Pond Lean-to (east),ATC,45.143930,-70.330250,Log/Lumber
-Bromley,ATC,43.222413,-72.950996,Post_&_Beam
-George W. Outerbridge Shelter,TNL,40.782490,-75.617930,Shelter
-James Fry Shelter,TNL,40.062950,-77.206110,Shelter
-Wawayanda Shelter,TNL,41.202210,-74.397710,Shelter
-Hogback Ridge Shelter,TNL,35.964080,-82.587130,Shelter
-Kinsman Pond,ATC,44.136920,-71.732886,Log/Lumber
-Gooch Mountain,ATC,34.655530,-84.050030,Stick_w/T1_siding
-Spruce Peak Shelter,TNL,43.178580,-72.995200,Shelter
-Pine Swamp Branch Shelter,TNL,37.422040,-80.608400,Shelter
-Blood Mountain Shelter,TNL,34.740030,-83.937430,Shelter
-Peters Mountain Shelter,TNL,40.425930,-76.879320,Shelter
-Kid Gore Shelter,TNL,43.014060,-73.042940,Shelter
-Mollies Ridge Shelter,TNL,35.545880,-83.793500,Shelter
-Peru Peak,ATC,43.301214,-72.952822,Log/Lumber
-Fire Warden's Cabin,ATC,43.825409,-72.037869,Stick_w/Lumber_sidng
-The Perch Shelter,TNL,44.324460,-71.310480,Shelter
-Hurricane Mountain,ATC,36.715475,-81.509666,Log
-Double Springs,ATC,36.509043,-81.986324,Cinder_Block
-Mount Wilcox South Lean-to,ATC,42.207727,-73.268756,Timber_Frame
-Mollies Ridge,ATC,35.545757,-83.793667,Stone
-Partnership,ATC,36.809451,-81.422557,Log/Lumber
-Stan Murray,ATC,36.112270,-82.065860,Unknown
-Rod Hollow,ATC,39.047597,-77.944371,Log/Lumber
-Horns Pond Lean-to (west),ATC,45.143930,-70.330220,Log/Lumber
-Rausch Gap,ATC,40.498640,-76.600470,Log
-David Lesser Memorial,ATC,39.227199,-77.779398,Log/Lumber
-501 Shelter,TNL,40.513120,-76.346400,Shelter
-Partnership Shelter,TNL,36.809530,-81.422370,Shelter
-Dick's Dome,ATC,38.969664,-77.997501,Lumber
-Watauga Lake,ATC,36.313900,-82.129550,Stick_w/ply_siding
-Minerva Hinchey Shelter,TNL,43.487860,-72.924530,Shelter
-Bailey Gap,ATC,37.400890,-80.577230,Post_&_Beam
-Wiley,ATC,41.637881,-73.532793,Log
-Eckville,ATC,40.633740,-75.958260,Other
-Darlington,ATC,40.301980,-77.087230,Stick_w/T1_siding
-Crampton Gap Shelter,TNL,39.412590,-77.637020,Shelter
-Deer Lick Shelters,TNL,39.766150,-77.484800,Shelter
-Full Goose Shelter,TNL,44.525150,-70.980880,Shelter
-Ensign Cowall,ATC,39.630991,-77.555970,Log
-Mashipacong Shelter,TNL,41.252160,-74.685940,Shelter
-Fingerboard Shelter,TNL,41.263270,-74.103990,Shelter
-Lula Tye Shelter,TNL,43.395430,-72.954660,Shelter
-Rock Spring Hut,TNL,38.553530,-78.408300,Hut
-Sam Moore Shelter,TNL,39.090670,-77.886270,Shelter
-Johns Spring Shelter,TNL,37.385370,-80.074030,Shelter
-Baldpate Lean-to,TNL,44.598420,-70.911670,Lean-to
-Wapiti,ATC,37.223814,-80.824306,Log
-Thomas Knob,ATC,36.656521,-81.535420,Log/Lumber
-Matts Creek,ATC,37.599466,-79.413478,Stick_w/Lumber_sidng
-Leroy A. Smith Shelter,TNL,40.839400,-75.359390,Shelter
-Silers Bald,ATC,35.564263,-83.568248,Stone/Log
-Caughnawaga Shelter,TNL,43.014970,-73.043630,Shelter
-Wise Shelter,TNL,36.654000,-81.498360,Shelter
-Speck Pond Lean-to,ATC,44.564777,-70.974140,Stick_w/Lumber_sidng
-Kay Wood Lean-to,TNL,42.452110,-73.161480,Lean-to
-Thunder Hill,ATC,37.527397,-79.504141,Stick_w/Lumber_siding
-Morgan Stewart,ATC,41.564539,-73.692166,Log/Lumber
-Poplar Ridge Lean-to,TNL,44.970000,-70.445340,Lean-to
-No Business Knob,ATC,36.066531,-82.433801,Other
-Pine  Knob,ATC,39.542479,-77.602121,Log
-Catawba Mountain Shelter,TNL,37.388180,-80.057140,Shelter
-Trapper John,ATC,43.783122,-72.111921,Stick_w/Lumber_sidng
-Paul C. Wolfe Shelter,TNL,37.985430,-78.883670,Shelter
-Jenkins Shelter,TNL,37.093400,-81.247620,Shelter
-Roaring Fork,ATC,35.805120,-82.949530,Log
-Tom Leonard Lean-to,TNL,42.164790,-73.305800,Lean-to
-Clarks Ferry Shelter,TNL,40.392380,-76.994120,Shelter
-Little Laurel Shelter,TNL,36.015100,-82.735920,Shelter
-Bryant Ridge,ATC,37.530079,-79.585835,Timber_Frame
-Winturri,ATC,43.662210,-72.622433,Other
-Saunders Shelter,TNL,36.637760,-81.713470,Shelter
-Jenny Knob,ATC,37.154970,-80.980320,Stick_w/Lumber_siding
-Goddard,ATC,42.974103,-73.072615,Timber_Frame
-Darlington Shelter,TNL,40.302000,-77.086900,Shelter
-Mount Wilcox North Lean-to,ATC,42.221100,-73.250659,Log/Lumber
-Spring Mountain Shelter,TNL,35.951770,-82.790070,Shelter
-Telephone Pioneers Shelter,TNL,41.603820,-73.618800,Shelter
-Long Branch Shelter,TNL,35.069971,-83.498158,Shelter
-Plumorchard Gap Shelter,TNL,34.945940,-83.588280,Shelter
-Melville Nauheim Shelter,TNL,42.887820,-73.095070,Shelter
-Wilson Valley Lean-to,TNL,45.398730,-69.459210,Lean-to
-Cosby Knob,ATC,35.728228,-83.182110,Stone/Log
-Upper Goose Pond Cabin,TNL,42.288020,-73.181420,Unknown
-Maupin Field Shelter,TNL,37.884900,-78.993630,Shelter
-Bromley Shelter,TNL,43.222380,-72.950480,Shelter
-Flint Mountain Shelter,TNL,36.034860,-82.596640,Shelter
-Russell Field Shelter,TNL,35.561900,-83.766900,Shelter
-Thelma Marks Shelter,TNL,40.363580,-77.067260,Shelter
-Bald Mountain Brook Lean-to,TNL,45.258540,-69.799470,Lean-to
-Eliza Brook,ATC,44.100931,-71.742657,Log/Lumber
-Lula Tye,ATC,43.395460,-72.955140,Other
-Clyde Smith,ATC,36.148478,-82.161305,Stick_w/ply_siding
-Devils Racecourse Shelter,TNL,39.671970,-77.524100,Shelter
-Carter Notch Hut,TNL,44.259260,-71.195330,Hut
-Mashipicong,ATC,41.252159,-74.686359,Stone
-William Penn,ATC,40.495585,-76.414445,Log/Lumber
-Hurd Brook Lean-to,TNL,45.818520,-69.018470,Lean-to
-Rattle River,ATC,44.380024,-71.108102,Stick_w/Lumber_sidng
-Docs Knob Shelter,TNL,37.270310,-80.836150,Shelter
-Helveys Mill Shelter,TNL,37.130780,-81.102950,Shelter
-Bald Mountain Shelter,TNL,36.000160,-82.478090,Shelter
-Horseshoe Canyon Lean-to,TNL,45.282740,-69.627590,Lean-to
-Wiley Shelter,TNL,41.637820,-73.532390,Shelter
-Brassie Brook,ATC,42.028364,-73.453817,Log
-Churchhill Scott,ATC,43.644910,-72.853890,Post_&_Beam
-Knot Maul Branch Shelter,TNL,37.000800,-81.404460,Shelter
-Governor Clement Shelter,TNL,43.564650,-72.848360,Shelter
-Jeffers Brook,ATC,43.996710,-71.889480,Log
-Carlo Col Shelter,TNL,44.488670,-71.016180,Shelter
-Brink Road Shelter,TNL,41.153230,-74.837770,Shelter
-Rock Gap Shelter,TNL,35.091590,-83.523030,Shelter
-Sarver Hollow,ATC,37.354620,-80.337620,Stick_w/Lumber_sidng
-Blackburn Trail Center,TNL,39.187650,-77.798030,Unknown
-Roan High Knob Shelter,TNL,36.105060,-82.122220,Shelter
-Carlo Col,ATC,44.488704,-71.016735,Log
-Manassass Gap,ATC,38.930607,-78.032994,Log
-Wilbur Clearing Lean-to,TNL,42.667760,-73.170150,Lean-to
-Laurel Fork,ATC,36.278670,-82.136390,Stone
-Wintturi Shelter,TNL,43.662180,-72.621930,Shelter
-Punchbowl Shelter,TNL,37.677880,-79.338440,Shelter
-Blue Mountain Shelter,TNL,34.817240,-83.766680,Shelter
-War Spur,ATC,37.397569,-80.474025,Stick_w/Lumber_sidng
-William B. Douglas Shelter,TNL,43.144400,-72.990980,Shelter
-Siler Bald Shelter,TNL,35.144220,-83.572470,Shelter
-Deep Gap,ATC,34.882370,-83.646010,Unknown
-Rainbow Stream Lean-to,TNL,45.799060,-69.170410,Lean-to
-Long Pond Stream Lean-to,TNL,45.421100,-69.409600,Lean-to
-Tom's Run,ATC,40.033647,-77.357109,Lumber
-Pecks Corner Shelter,TNL,35.650830,-83.308480,Shelter
-Thistle Hill Shelter,TNL,43.695180,-72.475320,Shelter
-Mount Collins,ATC,35.593923,-83.471070,Stone
-Limestone Spring Lean-to,TNL,41.975360,-73.392310,Lean-to
-Moreland Gap Shelter,TNL,36.220150,-82.088310,Shelter
-Plumorchard Gap,ATC,34.945823,-83.588443,Post_&_Beam
-Davenport Gap,ATC,35.769189,-83.123584,Stone/Log
-A. Rufus Morgan Shelter,TNL,35.324270,-83.590180,Shelter
-Thomas Knob Shelter,TNL,36.656600,-81.535240,Shelter
-Moose Mountain Shelter,TNL,43.727180,-72.149260,Shelter
-Rattle River Shelter,TNL,44.379900,-71.107430,Shelter
-Gren Anderson,ATC,41.199483,-74.753050,Log/Lumber
-Jenkins,ATC,37.093350,-81.247814,Log w/siding
-Fullhardt Knob Shelter,TNL,37.398520,-79.853670,Shelter
-No Business Knob Shelter,TNL,36.066620,-82.433650,Shelter
-Wildcat Shelter,TNL,41.268240,-74.267770,Shelter
-Melville Nauheim,ATC,42.887841,-73.095560,Other
-Greenwall Shelter,TNL,43.440590,-72.929470,Shelter
-Mt. Collins Shelter,TNL,35.593840,-83.471290,Shelter
-Vandeventer Shelter,TNL,36.367070,-82.058770,Shelter
-Abingdon Gap,ATC,36.580857,-81.901967,Cinder_Block
-Logan Brook Lean-to,TNL,45.560900,-69.235120,Lean-to
-James Fry at Tagg Run,ATC,40.062937,-77.206432,Stick
-Crag Camp,TNL,44.334910,-71.302020,Unknown
-Mt. Wilcox South Lean-to,TNL,42.207710,-73.268290,Lean-to
-October Mountain Lean-to,TNL,42.354930,-73.154040,Lean-to
-Old Orchard,ATC,36.683193,-81.511183,Log
-Congdon Shelter,TNL,42.848070,-73.109940,Shelter
-Groundhog Creek,ATC,35.781742,-83.026452,Stone
-Chatfield Shelter,TNL,36.850030,-81.363170,Shelter
-Fingerboard,ATC,41.263273,-74.104466,Stone
-Congdon,ATC,42.848096,-73.110427,Log/Lumber
-Birch Run,ATC,39.985099,-77.419760,Lumber
-Spruce Peak,ATC,43.178601,-72.995685,Log
-Moose Mountain,ATC,43.727215,-72.149779,Log
-High Point Shelter,TNL,41.315750,-74.657260,Shelter
-Kid Gore,ATC,43.014162,-73.043415,Log/Lumber
-Hightop Hut,TNL,38.333140,-78.558360,Hut
-Spaulding Mountain Lean-to,TNL,44.995770,-70.341340,Lean-to
-Stony Brook Shelter,TNL,43.691760,-72.730150,Shelter
-Gray Knob,TNL,44.332260,-71.310040,Unknown
-Gentian Pond,ATC,44.451839,-71.069942,Log/Lumber
-Chatfield Memorial,ATC,36.849816,-81.363234,Log w/siding
-Hog Back Ridge,ATC,35.963986,-82.587273,Log/Lumber
-Quarry Gap Shelters,TNL,39.931980,-77.486380,Shelter
-Springer Mountain Shelter,TNL,34.629460,-84.192680,Shelter
-Sassafras Gap Shelter,TNL,35.330870,-83.666880,Shelter
-Garfield Ridge Campsite Shelter,TNL,44.190690,-71.608360,Shelter
-Sabbath Day Pond Lean-to,TNL,44.840940,-70.662120,Lean-to
-Tricorner Knob Shelter,TNL,35.693760,-83.256530,Shelter
-Guyot,ATC,44.161078,-71.535578,Log/Lumber
-Riga Lean-to,TNL,42.015620,-73.451960,Lean-to
-Eagles Nest,ATC,40.549352,-76.152755,Log
-Cornelius Creek,ATC,37.493795,-79.547243,Stick_w/Lumber_sidng
-Carter Gap,ATC,34.998915,-83.494233,Log/Lumber
-Rocky Mountain,ATC,39.868502,-77.500911,Lumber
-William B. Douglas,ATC,43.144573,-72.991390,Log/Lumber
-Carter Gap Shelter (old),TNL,34.999980,-83.494760,Shelter
-Derrick Knob Shelter,TNL,35.566350,-83.641790,Shelter
-Deep Gap Shelter,TNL,34.882480,-83.645910,Shelter
-Madison Spring Hut,ATC,44.327842,-71.283795,Stick_w/Lumber_sidng
-Trimpi Shelter,TNL,36.749390,-81.480410,Shelter
-Lake of the Clouds Hut,TNL,44.258900,-71.318790,Hut
-Story Spring Shelter,TNL,43.050350,-73.012430,Shelter
-Windsor Furnace Shelter,TNL,40.590550,-75.941230,Shelter
-Antietam,ATC,39.793781,-77.482882,Log/Lumber
-Big Branch Shelter,TNL,43.364130,-72.946400,Shelter
-Brown Mountain Creek Shelter,TNL,37.709440,-79.268310,Shelter
-PA 501,ATC,40.513165,-76.346835,Other
-Brink Road,ATC,41.153231,-74.838186,Log/Lumber
-Brown Fork Gap,ATC,35.374168,-83.734021,Log
-Rufus Morgan,ATC,35.324202,-83.590230,Log
-Ed Garvey Shelter,TNL,39.359820,-77.661720,Shelter
-Walasi-yi Center,ATC,34.735070,-83.917880,Other
-Bobblet's Gap,ATC,37.467050,-79.701440,Stick_w/ply_siding
-The Birches Shelters,TNL,45.886750,-68.999050,Shelter
-Deer Lick,ATC,39.766125,-77.485119,Lumber
-Woods Hole,ATC,34.737120,-83.955050,Log/Lumber
-Pinefield Hut,TNL,38.290570,-78.645760,Hut
-William Penn Shelter,TNL,40.495590,-76.414090,Shelter
-Long Branch,ATC,35.070010,-83.498087,Stick_w/Lumber_sidng
-Wapiti Shelter,TNL,37.223860,-80.824030,Shelter
-Piazza Rock Lean-to,TNL,44.904180,-70.530040,Lean-to
-Pico Camp Shelter,TNL,43.638900,-72.831010,Shelter
-Walnut Mountain Shelter,TNL,35.836500,-82.936490,Shelter
-Rutherford Shelter,TNL,41.277460,-74.677810,Shelter
-John's Spring,ATC,37.385334,-80.074124,Stick_w/Lumber_sidng
-Peru Peak Shelter,TNL,43.301200,-72.951850,Shelter
-Trapper John Shelter,TNL,43.783100,-72.111510,Shelter
-Matts Creek Shelter,TNL,37.599550,-79.413200,Shelter
-Stewart Hollow Brook Lean-to,TNL,41.779280,-73.418510,Lean-to
-Clarendon,ATC,43.523667,-72.913118,Stick_w/Lumber_sidng
-Seeley-Woodworth Shelter,TNL,37.818970,-79.154880,Shelter
-Russell Field,ATC,35.561677,-83.766596,Stone
-Hawk Mountain Shelter,TNL,34.666030,-84.136310,Shelter
-Ore Hill camp,TNL,43.921830,-71.957440,Unknown
-Siler Bald,ATC,35.144110,-83.572580,Stick_w/T1_siding
-Cherry Gap Shelter,TNL,36.129240,-82.264120,Shelter
-Gooch Mountain Shelter,TNL,34.655650,-84.049940,Shelter
-Jim n Molly Denton Shelter,TNL,38.890070,-78.083060,Shelter
-Deer Park Mountain Shelter,TNL,35.875950,-82.861250,Shelter
-Byrds Nest 3,TNL,38.634410,-78.323760,Unknown
-Bobblets Gap Shelter,TNL,37.467120,-79.701210,Shelter
-Thistle Hill,ATC,43.695206,-72.475830,Log
-Pine Knob Shelter,TNL,39.542500,-77.601810,Shelter
-Campbell,ATC,37.390755,-80.029446,Lumber
-Pine Swamp,ATC,37.421984,-80.608683,Stone
-Alec Kennedy Shelter,TNL,40.111780,-77.104030,Shelter
-Brassie Brook Lean-to,TNL,42.028350,-73.453350,Lean-to
-Bryant Ridge Shelter,TNL,37.530150,-79.585570,Shelter
-Happy Hill,ATC,43.724072,-72.365667,Stone/Log
-Toms Run Shelters,TNL,40.033670,-77.356780,Shelter
-Imp Campsite Shelter,TNL,44.328860,-71.150040,Shelter
-Mount Algo Lean-to,ATC,41.731808,-73.496265,Log/Lumber
-Peters Mountain,ATC,40.425910,-76.879650,Unknown
-Manassas Gap Shelter,TNL,38.930710,-78.032690,Shelter
-Low Gap,ATC,34.776154,-83.824601,Log w/siding
-Lost Pond Shelter,TNL,43.347600,-72.952570,Shelter
-Cold Spring Shelter,TNL,35.231090,-83.559960,Shelter
-Whitley Gap,ATC,34.712485,-83.834447,Log/Lumber
-Crampton Gap,ATC,39.412562,-77.637335,Log/Lumber
-Fontana Dam Shelter,TNL,35.448490,-83.793980,Shelter
-Cable Gap,ATC,35.415165,-83.773522,Log
-Davenport Gap Shelter,TNL,35.769300,-83.123400,Shelter
-Big Spring Gap,ATC,35.058918,-83.478898,Stick_w/T1_siding
-Clyde Smith Shelter,TNL,36.148520,-82.161180,Shelter
-Brown Fork Gap Shelter,TNL,35.374270,-83.733920,Shelter
-Kirkridge Shelter,TNL,40.936720,-75.186400,Shelter
-Trimpi,ATC,36.749158,-81.480545,Stone
-Tom Floyd Wayside Shelter,TNL,38.850460,-78.163660,Shelter
-Hurricane Mountain Shelter,TNL,36.715360,-81.509520,Shelter
-Cove Mountain Shelter,TNL,37.511630,-79.650710,Shelter
-Knot Maul,ATC,37.000724,-81.404647,Log/Lumber
-Spence Field,ATC,35.561784,-83.732667,Stone/Log
-Lamberts Meadow Shelter,TNL,37.434610,-79.987540,Shelter
-Churchill Scott Shelter,TNL,43.644890,-72.853400,Shelter
-Derrick Knob,ATC,35.566503,-83.641887,Stone/Log
-Clark's Ferry,ATC,40.392229,-76.994080,Stick_w/T1_siding
-Lamberts Meadow,ATC,37.434587,-79.987724,Stone/Log
-Alec Kennedy,ATC,40.111762,-77.104367,Lumber
-Frye Notch Lean-to,TNL,44.627910,-70.899830,Lean-to
-Tumbling Run Shelters,TNL,39.804840,-77.478060,Shelter
-Mark Noepel Lean-to,TNL,42.608620,-73.184150,Lean-to
-Tri-corner Knob,ATC,35.693726,-83.256785,Stone/Log
-Rocky Run,ATC,39.462144,-77.631068,Log
-Greenwall,ATC,43.440610,-72.929960,Other
-Muskrat Creek Shelter,TNL,35.020720,-83.581440,Shelter
-Roan High Knob,ATC,36.104970,-82.122370,Unknown
-Stover Creek,ATC,34.648938,-84.200182,Post_&_Beam
-Garfield Ridge,ATC,44.190723,-71.608894,Log/Lumber
-Tucker Johnson removed,TNL,43.679430,-72.842950,Unknown
-Gifford Woods State Park,TNL,43.676070,-72.811200,Unknown
-Roaring Fork Shelter,TNL,35.805000,-82.949780,Shelter
-Guyot Campsite Shelter,TNL,44.161040,-71.535040,Shelter
-Hermit Lake Shelter (1 of 2),TNL,44.261090,-71.286300,Shelter
-Tray Mountain Shelter,TNL,34.804130,-83.676780,Shelter
-Bears Den Hostel,TNL,39.110930,-77.854090,Unknown
-Catawba,ATC,37.388205,-80.057094,Stick_w/Lumber_sidng
-Old Orchard Shelter,TNL,36.683130,-81.511210,Shelter
-Little Rock Pond,ATC,43.398837,-72.955171,Timber_Frame
-Tom Floyd Wayside,ATC,38.850420,-78.163950,Other
-Stover Creek Shelter,TNL,34.649060,-84.200090,Shelter
-Fullhardt Knob,ATC,37.398462,-79.853906,Stick_w/ply_siding
-William Brien Memorial,ATC,41.279741,-74.059728,Stone/Log
-Windsor Furnace,ATC,40.590540,-75.941600,Log
-West Carry Pond Lean-to,TNL,45.158030,-70.099770,Lean-to
-Tray Mountain,ATC,34.804000,-83.676886,Log/Lumber
-The Place,TNL,36.633890,-81.787280,Unknown
-Sarver Hollow Shelter,TNL,37.354690,-80.337410,Shelter
-RPH Shelter,TNL,41.514490,-73.792360,Shelter
-Punchbowl,ATC,37.677827,-79.338693,Stick_w/T1_siding
-Bake Oven Knob,ATC,40.754111,-75.727429,Log
-Ed Garvey,ATC,39.359792,-77.662040,Log/Lumber
-Governor Clement,ATC,43.564670,-72.848850,Stone
-Cooper Lodge,TNL,43.606060,-72.822490,Unknown
-Silers Bald Shelter,TNL,35.564300,-83.568220,Shelter
-Hermit Lake Shelter (2 of 2),TNL,44.261300,-71.285880,Shelter
-Rice Field,ATC,37.374833,-80.758556,Log/Lumber
-Jerry Cabin,TNL,36.056550,-82.657130,Unknown
-RPH,ATC,41.514503,-73.792808,Other
-Moxie Bald Lean-to,TNL,45.270680,-69.745340,Lean-to
-Ethan Pond Campsite Shelter,TNL,44.177150,-71.426590,Shelter
-Rutherford,ATC,41.277461,-74.678222,Log
-Icewater Spring Shelter,TNL,35.629790,-83.386270,Shelter
-Blue Mountain,ATC,34.817199,-83.767008,Stick_w/T1_siding
-Stan Murray Shelter,TNL,36.112360,-82.065710,Shelter
-Double Spring Gap,ATC,35.565075,-83.542729,Stone
-Overmountain,ATC,36.123507,-82.054410,Other
-Galehead Hut,TNL,44.187770,-71.568850,Hut
-Hexacuba Shelter,TNL,43.876230,-72.026860,Shelter
-Gentian Pond Campsite Shelter,TNL,44.451800,-71.069380,Shelter
-William Brien Memorial Shelter,TNL,41.279730,-74.059290,Shelter
-Big Branch,ATC,43.364150,-72.946880,Other
-Blackrock Hut,TNL,38.214260,-78.742940,Hut
-Calf Mountain Shelter,TNL,38.085530,-78.785550,Shelter
-Lost Mountain,ATC,36.644078,-81.656132,Log
-Smarts Mountain Cabin,TNL,43.825350,-72.037370,Unknown
-West Mountain Shelter,TNL,41.282360,-74.009200,Shelter
-Kinsman Pond Campsite Shelter,TNL,44.136810,-71.732300,Shelter
-Thunder Hill Shelter,TNL,37.527460,-79.503900,Shelter
-Doc's Knob,ATC,37.270267,-80.836393,Log w/siding
-Muskrat Creek,ATC,35.020610,-83.581558,Log
-Eagles Nest Shelter,TNL,40.549330,-76.152390,Shelter
-Abingdon Gap Shelter,TNL,36.580940,-81.901890,Shelter
-Wildcat,ATC,41.268265,-74.268198,Stick_w/Lumber_sidng
-Mt. Wilcox North Lean-to,TNL,42.221080,-73.250180,Lean-to
-Allentown Shelter,TNL,40.683050,-75.873850,Shelter
-Spence Field Shelter,TNL,35.561700,-83.732200,Shelter
-Mount Le Conte Shelter,TNL,35.652800,-83.438900,Shelter
-Cove Mountain,ATC,37.511571,-79.650958,Lumber
-Bake Oven Knob Shelter,TNL,40.754110,-75.727010,Shelter
-Gravel Springs Hut,TNL,38.763880,-78.233620,Hut
-Dicks Dome Shelter,TNL,38.969700,-77.997210,Shelter
-Rocky Mountain Shelters,TNL,39.868520,-77.500600,Shelter
-Chairback Gap Lean-to,TNL,45.453110,-69.261740,Lean-to
-Mizpah Spring Hut,TNL,44.219300,-71.369560,Hut
-Rice Field Shelter,TNL,37.374850,-80.758350,Shelter
-Telephone Pioneers,ATC,41.603841,-73.619268,Log/Lumber
-Cosby Knob Shelter,TNL,35.728280,-83.182200,Shelter
-Saunders,ATC,36.637683,-81.713643,Timber_Frame
-Imp Campsite,ATC,44.328949,-71.150717,Log/Lumber
-Ethan Pond,ATC,44.177209,-71.427339,Log
-Madison Springs Hut,TNL,44.327790,-71.283180,Hut
-Goddard Shelter,TNL,42.974090,-73.071690,Shelter
-Jeffers Brook Shelter,TNL,43.996680,-71.888950,Shelter
-Laurel Creek Shelter,TNL,37.358960,-80.420680,Shelter
-Full Goose,ATC,44.525252,-70.981400,Log w/siding
-Wesser Bald,ATC,35.282497,-83.582451,Log/Lumber
-Mountaineer Falls Shelter,TNL,36.220200,-81.985700,Shelter
-Old Job Shelter,TNL,43.354040,-72.928450,Shelter
-Fontana Dam,ATC,35.448384,-83.794020,Stick_w/T1_siding
-Cold Spring,ATC,35.230985,-83.560078,Log
-The Priest Shelter,TNL,37.817650,-79.070330,Shelter
-Rock Gap,ATC,35.091480,-83.523148,Stick_w/ply_siding
-Potaywadjo Spring Lean-to,TNL,45.706530,-69.007380,Lean-to
-Double Spring Gap Shelter,TNL,35.565270,-83.542740,Shelter
-Johns Hollow,ATC,37.612721,-79.392031,Log/Lumber
-Beaver Brook,ATC,44.033080,-71.811842,Log
-Allentown,ATC,40.683047,-75.874222,Log
-Wise,ATC,36.653961,-81.498550,Log/Lumber
-Pierce Pond Lean-to,TNL,45.240250,-70.055480,Lean-to
-Davis Path camp,TNL,36.914510,-81.376720,Unknown
-Horns Pond Lean-tos,TNL,45.143880,-70.329660,Lean-to
-Rod Hollow Shelter,TNL,39.047630,-77.944080,Shelter
-Laurel Fork Shelter,TNL,36.278760,-82.136230,Shelter
-Cow Camp Shelter,TNL,37.745040,-79.212690,Shelter
-Chestnut Knob Shelter,TNL,37.057730,-81.399340,Shelter
-Pine Swamp Brook Lean-to,TNL,41.881670,-73.391610,Lean-to
-Wesser Bald Shelter,TNL,35.282480,-83.582110,Shelter
-Low Gap Shelter,TNL,34.776250,-83.824500,Shelter
-Little Laurel,ATC,36.015012,-82.736067,Stone/Log
-Sam Moore,ATC,39.090630,-77.886570,Unknown
-Wayah Shelter,TNL,35.189460,-83.564410,Shelter
-Pochuck Mountain Shelter,TNL,41.271260,-74.514920,Shelter
-Kirkridge,ATC,40.936720,-75.186800,Other
-Woods Hole Shelter,TNL,34.737240,-83.954950,Shelter
-Cooper Brook Falls Lean-to,TNL,45.640500,-69.087400,Lean-to
-Speck Pond Shelter,TNL,44.564690,-70.973620,Shelter
-Ten Mile River Lean-to,TNL,41.665160,-73.509220,Lean-to
-Glen Brook Lean-to,TNL,42.111020,-73.427250,Lean-to
-Carter Gap Shelter (new),TNL,34.999020,-83.494080,Shelter
-Rausch Gap Shelter,TNL,40.498650,-76.600120,Shelter
-Wadleigh Stream Lean-to,TNL,45.747020,-69.144470,Lean-to
-Cloudland Shelter,TNL,43.692140,-72.493120,Shelter
-Cherry Gap,ATC,36.129150,-82.264272,Other
-High Point,ATC,41.315758,-74.657674,Stone
-Iron Mountain Shelter,TNL,36.435400,-81.990950,Shelter
-Wilson Creek,ATC,37.419368,-79.785831,Stick_w/Lumber_siding
-Seth Warner Shelter,TNL,42.771930,-73.136940,Shelter
+shelter,shelter_id,data_set,lat,lon,type
+Flint Mountain Shelter,1,TNL,36.034860,-82.596640,Shelter
+Leroy A. Smith Shelter,2,TNL,40.839400,-75.359390,Shelter
+Jim & Molly Denton,3,ATC,38.890030,-78.083350,Stick_w/T1_siding
+Bailey Gap,4,ATC,37.400890,-80.577230,Post_&_Beam
+Moreland Gap,5,ATC,36.220062,-82.088476,Cinder_Block
+Carter Gap Shelter (new),6,TNL,34.999020,-83.494080,Shelter
+Velvet Rocks Shelter,7,TNL,43.702510,-72.264720,Shelter
+Mountaineer Falls,8,ATC,36.220300,-81.985300,Unknown
+Goddard Shelter,9,TNL,42.974090,-73.071690,Shelter
+Hall Mountain Lean-to,10,TNL,44.700790,-70.824730,Lean-to
+Garfield Ridge,11,ATC,44.190723,-71.608894,Log/Lumber
+Telephone Pioneers,12,ATC,41.603841,-73.619268,Log/Lumber
+Horns Pond Lean-to (west),13,ATC,45.143930,-70.330220,Log/Lumber
+Blackrock Hut,14,TNL,38.214260,-78.742940,Hut
+Wapiti,15,ATC,37.223814,-80.824306,Log
+Tumbling Run,16,ATC,39.804820,-77.478376,Lumber
+Double Springs,17,ATC,36.509043,-81.986324,Cinder_Block
+Cove Mountain Shelter,18,TNL,37.511630,-79.650710,Shelter
+Davenport Gap Shelter,19,TNL,35.769300,-83.123400,Shelter
+Minerva Hinchey Shelter,20,TNL,43.487860,-72.924530,Shelter
+Birch Run,21,ATC,39.985099,-77.419760,Lumber
+Cove Mountain,22,ATC,37.511571,-79.650958,Lumber
+Gentian Pond,23,ATC,44.451839,-71.069942,Log/Lumber
+Ensign Cowall,24,ATC,39.630991,-77.555970,Log
+William Penn Shelter,25,TNL,40.495590,-76.414090,Shelter
+Siler Bald Shelter,26,TNL,35.144220,-83.572470,Shelter
+Tray Mountain,27,ATC,34.804000,-83.676886,Log/Lumber
+Pine Swamp Brook Lean-to,28,TNL,41.881670,-73.391610,Lean-to
+Wintturi Shelter,29,TNL,43.662180,-72.621930,Shelter
+Sam Moore Shelter,30,TNL,39.090670,-77.886270,Shelter
+Seth Warner,31,ATC,42.772159,-73.137283,Stick_w/Lumber_sidng
+Davis Path camp,32,TNL,36.914510,-81.376720,Unknown
+Groundhog Creek Shelter,33,TNL,35.781840,-83.026320,Shelter
+Pochuck Mountain Shelter,34,TNL,41.271260,-74.514920,Shelter
+Catawba Mountain Shelter,35,TNL,37.388180,-80.057140,Shelter
+Lamberts Meadow Shelter,36,TNL,37.434610,-79.987540,Shelter
+Jenkins Shelter,37,TNL,37.093400,-81.247620,Shelter
+Deer Park,38,ATC,35.875884,-82.861367,Log
+Jim n Molly Denton Shelter,39,TNL,38.890070,-78.083060,Shelter
+Vandeventer Shelter,40,TNL,36.367070,-82.058770,Shelter
+Cosby Knob Shelter,41,TNL,35.728280,-83.182200,Shelter
+Beaver Brook Shelter,42,TNL,44.033040,-71.811320,Shelter
+William Brien Memorial Shelter,43,TNL,41.279730,-74.059290,Shelter
+Chatfield Memorial,44,ATC,36.849816,-81.363234,Log w/siding
+Mt. Algo Lean-to,45,TNL,41.731800,-73.495810,Lean-to
+Flint Mountain,46,ATC,36.034770,-82.596780,Unknown
+Moreland Gap Shelter,47,TNL,36.220150,-82.088310,Shelter
+Walasi-yi Center,48,ATC,34.735070,-83.917880,Other
+Wise Shelter,49,TNL,36.654000,-81.498360,Shelter
+Alec Kennedy,50,ATC,40.111762,-77.104367,Lumber
+Rice Field Shelter,51,TNL,37.374850,-80.758350,Shelter
+Poplar Ridge Lean-to,52,TNL,44.970000,-70.445340,Lean-to
+Thistle Hill Shelter,53,TNL,43.695180,-72.475320,Shelter
+Winturri,54,ATC,43.662210,-72.622433,Other
+Eliza Brook,55,ATC,44.100931,-71.742657,Log/Lumber
+Stan Murray Shelter,56,TNL,36.112360,-82.065710,Shelter
+Little Laurel Shelter,57,TNL,36.015100,-82.735920,Shelter
+Clarendon Shelter,58,TNL,43.523540,-72.912570,Shelter
+Docs Knob Shelter,59,TNL,37.270310,-80.836150,Shelter
+Lamberts Meadow,60,ATC,37.434587,-79.987724,Stone/Log
+Madison Spring Hut,61,ATC,44.327842,-71.283795,Stick_w/Lumber_sidng
+Rutherford,62,ATC,41.277461,-74.678222,Log
+Vandeventer,63,ATC,36.366960,-82.058896,Cinder_Block
+Low Gap Shelter,64,TNL,34.776250,-83.824500,Shelter
+A. Rufus Morgan Shelter,65,TNL,35.324270,-83.590180,Shelter
+Brown Fork Gap,66,ATC,35.374168,-83.734021,Log
+George W. Outerbridge Shelter,67,TNL,40.782490,-75.617930,Shelter
+Jeffers Brook Shelter,68,TNL,43.996680,-71.888950,Shelter
+Hexacuba,69,ATC,43.876258,-72.027344,Log
+Little Laurel,70,ATC,36.015012,-82.736067,Stone/Log
+Sarver Hollow Shelter,71,TNL,37.354690,-80.337410,Shelter
+Little Rock Pond,72,ATC,43.398837,-72.955171,Timber_Frame
+Bascom Lodge,73,TNL,42.636860,-73.167360,Unknown
+Bald Mountain Shelter,74,TNL,36.000160,-82.478090,Shelter
+Bryant Ridge Shelter,75,TNL,37.530150,-79.585570,Shelter
+Brassie Brook,76,ATC,42.028364,-73.453817,Log
+Walnut Mountain Shelter,77,TNL,35.836500,-82.936490,Shelter
+Clarks Ferry Shelter,78,TNL,40.392380,-76.994120,Shelter
+Pine Swamp Branch Shelter,79,TNL,37.422040,-80.608400,Shelter
+Kirkridge Shelter,80,TNL,40.936720,-75.186400,Shelter
+Plumorchard Gap,81,ATC,34.945823,-83.588443,Post_&_Beam
+501 Shelter,82,TNL,40.513120,-76.346400,Shelter
+Cooper Lodge,83,TNL,43.606060,-72.822490,Unknown
+RPH Shelter,84,TNL,41.514490,-73.792360,Shelter
+Piazza Rock Lean-to,85,TNL,44.904180,-70.530040,Lean-to
+Wilson Creek Shelter,86,TNL,37.419360,-79.785580,Shelter
+Leeman Brook Lean-to,87,TNL,45.351510,-69.498770,Lean-to
+Pine Knob Shelter,88,TNL,39.542500,-77.601810,Shelter
+Niday Shelter,89,TNL,37.387650,-80.264030,Shelter
+Laurel Fork Shelter,90,TNL,36.278760,-82.136230,Shelter
+Knot Maul Branch Shelter,91,TNL,37.000800,-81.404460,Shelter
+Muskrat Creek Shelter,92,TNL,35.020720,-83.581440,Shelter
+Galehead Hut,93,TNL,44.187770,-71.568850,Hut
+Stratton Pond,94,ATC,43.100531,-72.964509,Post_&_Beam
+Helveys Mill Shelter,95,TNL,37.130780,-81.102950,Shelter
+William Penn,96,ATC,40.495585,-76.414445,Log/Lumber
+Thomas Knob,97,ATC,36.656521,-81.535420,Log/Lumber
+Rice Field,98,ATC,37.374833,-80.758556,Log/Lumber
+Matts Creek,99,ATC,37.599466,-79.413478,Stick_w/Lumber_sidng
+Sasafras Gap,100,ATC,35.330766,-83.666998,Stick_w/ply_siding
+Tricorner Knob Shelter,101,TNL,35.693760,-83.256530,Shelter
+Hog Back Ridge,102,ATC,35.963986,-82.587273,Log/Lumber
+Watauga Lake Shelter,103,TNL,36.313980,-82.129400,Shelter
+Goddard,104,ATC,42.974103,-73.072615,Timber_Frame
+Eagles Nest Shelter,105,TNL,40.549330,-76.152390,Shelter
+Speck Pond Shelter,106,TNL,44.564690,-70.973620,Shelter
+Frye Notch Lean-to,107,TNL,44.627910,-70.899830,Lean-to
+Punchbowl,108,ATC,37.677827,-79.338693,Stick_w/T1_siding
+Double Springs Shelter,109,TNL,36.509110,-81.986060,Shelter
+James Fry at Tagg Run,110,ATC,40.062937,-77.206432,Stick
+Rausch Gap,111,ATC,40.498640,-76.600470,Log
+Hexacuba Shelter,112,TNL,43.876230,-72.026860,Shelter
+Bears Den Hostel,113,TNL,39.110930,-77.854090,Unknown
+Greenwall,114,ATC,43.440610,-72.929960,Other
+Stan Murray,115,ATC,36.112270,-82.065860,Unknown
+Fullhardt Knob Shelter,116,TNL,37.398520,-79.853670,Shelter
+Pierce Pond Lean-to,117,TNL,45.240250,-70.055480,Lean-to
+Jenkins,118,ATC,37.093350,-81.247814,Log w/siding
+Greenwall Shelter,119,TNL,43.440590,-72.929470,Shelter
+Overmountain Shelter,120,TNL,36.123490,-82.054290,Shelter
+John's Spring,121,ATC,37.385334,-80.074124,Stick_w/Lumber_sidng
+Horns Pond Lean-tos,122,TNL,45.143880,-70.329660,Lean-to
+Wilbur Clearing Lean-to,123,TNL,42.667760,-73.170150,Lean-to
+Ed Garvey,124,ATC,39.359792,-77.662040,Log/Lumber
+Hogback Ridge Shelter,125,TNL,35.964080,-82.587130,Shelter
+Bromley Shelter,126,TNL,43.222380,-72.950480,Shelter
+Mashipacong Shelter,127,TNL,41.252160,-74.685940,Shelter
+Bearfence Mountain Hut,128,TNL,38.444090,-78.470410,Hut
+Gren Anderson Shelter,129,TNL,41.199480,-74.752640,Shelter
+Upper Goose Pond Cabin,130,TNL,42.288020,-73.181420,Unknown
+Woods Hole,131,ATC,34.737120,-83.955050,Log/Lumber
+Brink Road,132,ATC,41.153231,-74.838186,Log/Lumber
+Pecks Corner,133,ATC,35.650753,-83.308673,Stone/Log
+Seeley-Woodworth Shelter,134,TNL,37.818970,-79.154880,Shelter
+Wesser Bald,135,ATC,35.282497,-83.582451,Log/Lumber
+Hightop Hut,136,TNL,38.333140,-78.558360,Hut
+Siler Bald,137,ATC,35.144110,-83.572580,Stick_w/T1_siding
+Pinefield Hut,138,TNL,38.290570,-78.645760,Hut
+Wayah Shelter,139,TNL,35.189460,-83.564410,Shelter
+Baldpate Lean-to,140,TNL,44.598420,-70.911670,Lean-to
+Whitley Gap,141,ATC,34.712485,-83.834447,Log/Lumber
+Ten Mile River Lean-to,142,TNL,41.665160,-73.509220,Lean-to
+Spruce Peak Shelter,143,TNL,43.178580,-72.995200,Shelter
+Long Pond Lean-to,144,ATC,45.421148,-69.410230,Log/Lumber
+Low Gap,145,ATC,34.776154,-83.824601,Log w/siding
+Manassas Gap Shelter,146,TNL,38.930710,-78.032690,Shelter
+Big Branch Shelter,147,TNL,43.364130,-72.946400,Shelter
+Imp Campsite,148,ATC,44.328949,-71.150717,Log/Lumber
+Cloudland Shelter,149,TNL,43.692140,-72.493120,Shelter
+Full Goose,150,ATC,44.525252,-70.981400,Log w/siding
+Ethan Pond Campsite Shelter,151,TNL,44.177150,-71.426590,Shelter
+Stony Brook Shelter,152,TNL,43.691760,-72.730150,Shelter
+Double Spring Gap,153,ATC,35.565075,-83.542729,Stone
+Jenny Knob Shelter,154,TNL,37.155040,-80.980130,Shelter
+Carlo Col,155,ATC,44.488704,-71.016735,Log
+Governor Clement,156,ATC,43.564670,-72.848850,Stone
+William Brien Memorial,157,ATC,41.279741,-74.059728,Stone/Log
+West Mountain Shelter,158,TNL,41.282360,-74.009200,Shelter
+Mollies Ridge Shelter,159,TNL,35.545880,-83.793500,Shelter
+Wapiti Shelter,160,TNL,37.223860,-80.824030,Shelter
+Gray Knob,161,TNL,44.332260,-71.310040,Unknown
+Wildcat Shelter,162,TNL,41.268240,-74.267770,Shelter
+William B. Douglas Shelter,163,TNL,43.144400,-72.990980,Shelter
+Johns Hollow,164,ATC,37.612721,-79.392031,Log/Lumber
+Fontana Dam Shelter,165,TNL,35.448490,-83.793980,Shelter
+The Birches Shelters,166,TNL,45.886750,-68.999050,Shelter
+Rock Gap Shelter,167,TNL,35.091590,-83.523030,Shelter
+Harpers Creek Shelter,168,TNL,37.856190,-79.000500,Shelter
+Hawk Mountain,169,ATC,34.665910,-84.136402,Post_&_Beam
+Manassass Gap,170,ATC,38.930607,-78.032994,Log
+Imp Campsite Shelter,171,TNL,44.328860,-71.150040,Shelter
+Chatfield Shelter,172,TNL,36.850030,-81.363170,Shelter
+Jenny Knob,173,ATC,37.154970,-80.980320,Stick_w/Lumber_siding
+David Lesser Shelter,174,TNL,39.227230,-77.779090,Shelter
+Fingerboard Shelter,175,TNL,41.263270,-74.103990,Shelter
+Mt. Wilcox South Lean-to,176,TNL,42.207710,-73.268290,Lean-to
+Johns Spring Shelter,177,TNL,37.385370,-80.074030,Shelter
+Rocky Run Shelter,178,TNL,39.460950,-77.630870,Shelter
+Thunder Hill,179,ATC,37.527397,-79.504141,Stick_w/Lumber_siding
+Tom Floyd Wayside,180,ATC,38.850420,-78.163950,Other
+Rattle River,181,ATC,44.380024,-71.108102,Stick_w/Lumber_sidng
+Hurd Brook Lean-to,182,TNL,45.818520,-69.018470,Lean-to
+Carter Gap,183,ATC,34.998915,-83.494233,Log/Lumber
+Brink Road Shelter,184,TNL,41.153230,-74.837770,Shelter
+Old Job Shelter,185,TNL,43.354040,-72.928450,Shelter
+Tom's Run,186,ATC,40.033647,-77.357109,Lumber
+Deer Lick Shelters,187,TNL,39.766150,-77.484800,Shelter
+Darlington Shelter,188,TNL,40.302000,-77.086900,Shelter
+Tom Leonard Lean-to,189,TNL,42.164790,-73.305800,Lean-to
+The Place,190,TNL,36.633890,-81.787280,Unknown
+Guyot Campsite Shelter,191,TNL,44.161040,-71.535040,Shelter
+Morgan Stewart,192,ATC,41.564539,-73.692166,Log/Lumber
+Icewater Spring Shelter,193,TNL,35.629790,-83.386270,Shelter
+Mount Collins,194,ATC,35.593923,-83.471070,Stone
+The Hemlocks Lean-to,195,TNL,42.109680,-73.428650,Lean-to
+Ensign Cowall Shelter,196,TNL,39.631020,-77.555660,Shelter
+No Business Knob Shelter,197,TNL,36.066620,-82.433650,Shelter
+Gifford Woods State Park,198,TNL,43.676070,-72.811200,Unknown
+Lula Tye Shelter,199,TNL,43.395430,-72.954660,Shelter
+Madison Springs Hut,200,TNL,44.327790,-71.283180,Hut
+Spence Field Shelter,201,TNL,35.561700,-83.732200,Shelter
+Wildcat,202,ATC,41.268265,-74.268198,Stick_w/Lumber_sidng
+Cold Spring,203,ATC,35.230985,-83.560078,Log
+Bobblet's Gap,204,ATC,37.467050,-79.701440,Stick_w/ply_siding
+Cherry Gap Shelter,205,TNL,36.129240,-82.264120,Shelter
+Pochuck Mountain,206,ATC,41.271260,-74.515345,Other
+Alec Kennedy Shelter,207,TNL,40.111780,-77.104030,Shelter
+Stratton Pond Shelter,208,TNL,43.100500,-72.963550,Shelter
+Story Spring,209,ATC,43.050463,-73.012923,Stick_w/Lumber_sidng
+Dick's Dome,210,ATC,38.969664,-77.997501,Lumber
+Churchhill Scott,211,ATC,43.644910,-72.853890,Post_&_Beam
+Calf Mountain Shelter,212,TNL,38.085530,-78.785550,Shelter
+George W. Outerbridge,213,ATC,40.782490,-75.618317,Log
+Roaring Fork Shelter,214,TNL,35.805000,-82.949780,Shelter
+Rausch Gap Shelter,215,TNL,40.498650,-76.600120,Shelter
+Moxie Bald Lean-to,216,TNL,45.270680,-69.745340,Lean-to
+PA 501,217,ATC,40.513165,-76.346835,Other
+Rocky Mountain,218,ATC,39.868502,-77.500911,Lumber
+Knot Maul,219,ATC,37.000724,-81.404647,Log/Lumber
+Cooper Brook Falls Lean-to,220,TNL,45.640500,-69.087400,Lean-to
+Congdon Shelter,221,TNL,42.848070,-73.109940,Shelter
+Black Gap Shelter,222,TNL,34.617680,-84.198710,Shelter
+Crag Camp,223,TNL,44.334910,-71.302020,Unknown
+Clyde Smith,224,ATC,36.148478,-82.161305,Stick_w/ply_siding
+Blackburn Trail Center,225,TNL,39.187650,-77.798030,Unknown
+Antietam,226,ATC,39.793781,-77.482882,Log/Lumber
+Gentian Pond Campsite Shelter,227,TNL,44.451800,-71.069380,Shelter
+Devils Racecourse Shelter,228,TNL,39.671970,-77.524100,Shelter
+Leroy A. Smith,229,ATC,40.839390,-75.359780,Log
+Brown Fork Gap Shelter,230,TNL,35.374270,-83.733920,Shelter
+Eckville Shelter,231,TNL,40.633750,-75.957890,Shelter
+Clark's Ferry,232,ATC,40.392229,-76.994080,Stick_w/T1_siding
+Pecks Corner Shelter,233,TNL,35.650830,-83.308480,Shelter
+Lost Mountain,234,ATC,36.644078,-81.656132,Log
+Crampton Gap Shelter,235,TNL,39.412590,-77.637020,Shelter
+Bromley,236,ATC,43.222413,-72.950996,Post_&_Beam
+Lula Tye,237,ATC,43.395460,-72.955140,Other
+Kay Wood Lean-to,238,TNL,42.452110,-73.161480,Lean-to
+Big Branch,239,ATC,43.364150,-72.946880,Other
+Story Spring Shelter,240,TNL,43.050350,-73.012430,Shelter
+Wilson Creek,241,ATC,37.419368,-79.785831,Stick_w/Lumber_siding
+Morgan Stewart Memorial Shelter,242,TNL,41.564540,-73.691700,Shelter
+The Perch Shelter,243,TNL,44.324460,-71.310480,Shelter
+Trimpi,244,ATC,36.749158,-81.480545,Stone
+Lost Mountain Shelter,245,TNL,36.644190,-81.655920,Shelter
+James Fry Shelter,246,TNL,40.062950,-77.206110,Shelter
+Roan High Knob,247,ATC,36.104970,-82.122370,Unknown
+Rufus Morgan,248,ATC,35.324202,-83.590230,Log
+Bailey Gap Shelter,249,TNL,37.400950,-80.577020,Shelter
+Russell Field Shelter,250,TNL,35.561900,-83.766900,Shelter
+Gooch Mountain,251,ATC,34.655530,-84.050030,Stick_w/T1_siding
+Deep Gap Shelter,252,TNL,34.882480,-83.645910,Shelter
+Full Goose Shelter,253,TNL,44.525150,-70.980880,Shelter
+Jeffers Brook,254,ATC,43.996710,-71.889480,Log
+Riga Lean-to,255,TNL,42.015620,-73.451960,Lean-to
+West Carry Pond Lean-to,256,TNL,45.158030,-70.099770,Lean-to
+Cornelius Creek,257,ATC,37.493795,-79.547243,Stick_w/Lumber_sidng
+Chairback Gap Lean-to,258,TNL,45.453110,-69.261740,Lean-to
+Mollies Ridge,259,ATC,35.545757,-83.793667,Stone
+Melville Nauheim,260,ATC,42.887841,-73.095560,Other
+No Business Knob,261,ATC,36.066531,-82.433801,Other
+Deer Lick,262,ATC,39.766125,-77.485119,Lumber
+Horns Pond Lean-to (east),263,ATC,45.143930,-70.330250,Log/Lumber
+Kid Gore,264,ATC,43.014162,-73.043415,Log/Lumber
+Long Pond Stream Lean-to,265,TNL,45.421100,-69.409600,Lean-to
+Spruce Peak,266,ATC,43.178601,-72.995685,Log
+Little Bigelow Lean-to,267,TNL,45.139170,-70.191150,Lean-to
+Zealand Falls Hut,268,TNL,44.195830,-71.494310,Hut
+Abingdon Gap,269,ATC,36.580857,-81.901967,Cinder_Block
+High Point,270,ATC,41.315758,-74.657674,Stone
+Standing Indian Shelter,271,TNL,35.041970,-83.548060,Shelter
+Cherry Gap,272,ATC,36.129150,-82.264272,Other
+Deer Park Mountain Shelter,273,TNL,35.875950,-82.861250,Shelter
+Stover Creek,274,ATC,34.648938,-84.200182,Post_&_Beam
+Hermit Lake Shelter (2 of 2),275,TNL,44.261300,-71.285880,Shelter
+Wawayanda Shelter,276,TNL,41.202210,-74.397710,Shelter
+Tri-corner Knob,277,ATC,35.693726,-83.256785,Stone/Log
+Campbell Shelter,278,TNL,37.390820,-80.029220,Shelter
+Partnership,279,ATC,36.809451,-81.422557,Log/Lumber
+Mt. Collins Shelter,280,TNL,35.593840,-83.471290,Shelter
+Pine  Knob,281,ATC,39.542479,-77.602121,Log
+Cold Spring Shelter,282,TNL,35.231090,-83.559960,Shelter
+Overmountain,283,ATC,36.123507,-82.054410,Other
+Woods Hole Shelter,284,TNL,34.737240,-83.954950,Shelter
+Rocky Run,285,ATC,39.462144,-77.631068,Log
+Wesser Bald Shelter,286,TNL,35.282480,-83.582110,Shelter
+Caughnawaga Shelter,287,TNL,43.014970,-73.043630,Shelter
+Spaulding Mountain Lean-to,288,TNL,44.995770,-70.341340,Lean-to
+Curley Maple Gap Shelter,289,TNL,36.104330,-82.396840,Shelter
+Hermit Lake Shelter (1 of 2),290,TNL,44.261090,-71.286300,Shelter
+Pico Camp Shelter,291,TNL,43.638900,-72.831010,Shelter
+Silers Bald,292,ATC,35.564263,-83.568248,Stone/Log
+Wilson Valley Lean-to,293,TNL,45.398730,-69.459210,Lean-to
+Fire Warden's Cabin,294,ATC,43.825409,-72.037869,Stick_w/Lumber_sidng
+Velvet Rocks,295,ATC,43.702583,-72.265210,Timber_Frame
+Kirkridge,296,ATC,40.936720,-75.186800,Other
+Blood Mountain,297,ATC,34.739910,-83.937520,Stone
+Guyot,298,ATC,44.161078,-71.535578,Log/Lumber
+Cornelius Creek Shelter,299,TNL,37.494010,-79.547030,Shelter
+Kinsman Pond Campsite Shelter,300,TNL,44.136810,-71.732300,Shelter
+Paul C. Wolfe Shelter,301,TNL,37.985430,-78.883670,Shelter
+Mount Wilcox North Lean-to,302,ATC,42.221100,-73.250659,Log/Lumber
+Wise,303,ATC,36.653961,-81.498550,Log/Lumber
+Doc's Knob,304,ATC,37.270267,-80.836393,Log w/siding
+Fontana Dam,305,ATC,35.448384,-83.794020,Stick_w/T1_siding
+Fingerboard,306,ATC,41.263273,-74.104466,Stone
+Bald Mountain,307,ATC,36.000070,-82.478230,Stick_w/ply_siding
+Gooch Mountain Shelter,308,TNL,34.655650,-84.049940,Shelter
+David Lesser Memorial,309,ATC,39.227199,-77.779398,Log/Lumber
+Wiley,310,ATC,41.637881,-73.532793,Log
+Iron Mountain,311,ATC,36.435320,-81.991110,Unknown
+Speck Pond Lean-to,312,ATC,44.564777,-70.974140,Stick_w/Lumber_sidng
+Lake of the Clouds Hut,313,TNL,44.258900,-71.318790,Hut
+Rutherford Shelter,314,TNL,41.277460,-74.677810,Shelter
+Saunders Shelter,315,TNL,36.637760,-81.713470,Shelter
+Toms Run Shelters,316,TNL,40.033670,-77.356780,Shelter
+Whitley Gap Shelter,317,TNL,34.712500,-83.834280,Shelter
+Mountaineer Falls Shelter,318,TNL,36.220200,-81.985700,Shelter
+Sarver Hollow,319,ATC,37.354620,-80.337620,Stick_w/Lumber_sidng
+Moose Mountain Shelter,320,TNL,43.727180,-72.149260,Shelter
+Springer Mountain Shelter,321,TNL,34.629460,-84.192680,Shelter
+Thistle Hill,322,ATC,43.695206,-72.475830,Log
+Rod Hollow,323,ATC,39.047597,-77.944371,Log/Lumber
+Pleasant Pond Lean-to,324,TNL,45.271190,-69.916750,Lean-to
+Peru Peak,325,ATC,43.301214,-72.952822,Log/Lumber
+Trimpi Shelter,326,TNL,36.749390,-81.480410,Shelter
+Trapper John,327,ATC,43.783122,-72.111921,Stick_w/Lumber_sidng
+Rainbow Stream Lean-to,328,TNL,45.799060,-69.170410,Lean-to
+Tumbling Run Shelters,329,TNL,39.804840,-77.478060,Shelter
+Hurricane Mountain Shelter,330,TNL,36.715360,-81.509520,Shelter
+Brown Mountain Creek Shelter,331,TNL,37.709440,-79.268310,Shelter
+Dicks Dome Shelter,332,TNL,38.969700,-77.997210,Shelter
+Cloud Pond Lean-to,333,TNL,45.418040,-69.353220,Lean-to
+Jerry Cabin,334,TNL,36.056550,-82.657130,Unknown
+Bemis Mountain Lean-to,335,TNL,44.810180,-70.755880,Lean-to
+Wadleigh Stream Lean-to,336,TNL,45.747020,-69.144470,Lean-to
+Long Branch,337,ATC,35.070010,-83.498087,Stick_w/Lumber_sidng
+Allentown,338,ATC,40.683047,-75.874222,Log
+Plumorchard Gap Shelter,339,TNL,34.945940,-83.588280,Shelter
+Springer Mountain,340,ATC,34.629337,-84.192779,Post_&_Beam
+Byrds Nest 3,341,TNL,38.634410,-78.323760,Unknown
+Laurel Creek,342,ATC,37.358896,-80.420894,Post_&_Beam
+Wawayanda,343,ATC,41.202216,-74.398137,Log/Lumber
+Bobblets Gap Shelter,344,TNL,37.467120,-79.701210,Shelter
+Old Orchard Shelter,345,TNL,36.683130,-81.511210,Shelter
+Rod Hollow Shelter,346,TNL,39.047630,-77.944080,Shelter
+Clarendon,347,ATC,43.523667,-72.913118,Stick_w/Lumber_sidng
+Tom Floyd Wayside Shelter,348,TNL,38.850460,-78.163660,Shelter
+Curly Maple Gap,349,ATC,36.104229,-82.397012,Cinder_Block
+Blue Mountain,350,ATC,34.817199,-83.767008,Stick_w/T1_siding
+Walnut Mountain,351,ATC,35.836408,-82.936630,Log
+Smarts Mountain Cabin,352,TNL,43.825350,-72.037370,Unknown
+Birch Run Shelters,353,TNL,39.985120,-77.419430,Shelter
+Deep Gap,354,ATC,34.882370,-83.646010,Unknown
+Seth Warner Shelter,355,TNL,42.771930,-73.136940,Shelter
+Sam Moore,356,ATC,39.090630,-77.886570,Unknown
+Derrick Knob Shelter,357,TNL,35.566350,-83.641790,Shelter
+Long Branch Shelter,358,TNL,35.069971,-83.498158,Shelter
+Congdon,359,ATC,42.848096,-73.110427,Log/Lumber
+Old Orchard,360,ATC,36.683193,-81.511183,Log
+Matts Creek Shelter,361,TNL,37.599550,-79.413200,Shelter
+William B. Douglas,362,ATC,43.144573,-72.991390,Log/Lumber
+Bryant Ridge,363,ATC,37.530079,-79.585835,Timber_Frame
+Beaver Brook,364,ATC,44.033080,-71.811842,Log
+Melville Nauheim Shelter,365,TNL,42.887820,-73.095070,Shelter
+Bake Oven Knob Shelter,366,TNL,40.754110,-75.727010,Shelter
+Double Spring Gap Shelter,367,TNL,35.565270,-83.542740,Shelter
+Glen Brook Lean-to,368,TNL,42.111020,-73.427250,Lean-to
+Minerva Hinchey,369,ATC,43.487880,-72.925020,Other
+Rock Spring Hut,370,TNL,38.553530,-78.408300,Hut
+Telephone Pioneers Shelter,371,TNL,41.603820,-73.618800,Shelter
+Brassie Brook Lean-to,372,TNL,42.028350,-73.453350,Lean-to
+Punchbowl Shelter,373,TNL,37.677880,-79.338440,Shelter
+Hawk Mountain Shelter,374,TNL,34.666030,-84.136310,Shelter
+Mizpah Spring Hut,375,TNL,44.219300,-71.369560,Hut
+Windsor Furnace,376,ATC,40.590540,-75.941600,Log
+Mt. Wilcox North Lean-to,377,TNL,42.221080,-73.250180,Lean-to
+Ethan Pond,378,ATC,44.177209,-71.427339,Log
+Trapper John Shelter,379,TNL,43.783100,-72.111510,Shelter
+Cable Gap Shelter,380,TNL,35.415230,-83.773420,Shelter
+Carter Gap Shelter (old),381,TNL,34.999980,-83.494760,Shelter
+Mount Algo Lean-to,382,ATC,41.731808,-73.496265,Log/Lumber
+Gren Anderson,383,ATC,41.199483,-74.753050,Log/Lumber
+Bald Mountain Brook Lean-to,384,TNL,45.258540,-69.799470,Lean-to
+War Spur Shelter,385,TNL,37.397570,-80.473820,Shelter
+Icewater Spring,386,ATC,35.629756,-83.386280,Stone/Log
+Mount Wilcox South Lean-to,387,ATC,42.207727,-73.268756,Timber_Frame
+Helvey's Mill,388,ATC,37.130706,-81.103144,Lumber
+Blue Mountain Shelter,389,TNL,34.817240,-83.766680,Shelter
+Wayah Bald,390,ATC,35.187702,-83.562139,Log/Lumber
+Davenport Gap,391,ATC,35.769189,-83.123584,Stone/Log
+Stover Creek Shelter,392,TNL,34.649060,-84.200090,Shelter
+Crampton Gap,393,ATC,39.412562,-77.637335,Log/Lumber
+Governor Clement Shelter,394,TNL,43.564650,-72.848360,Shelter
+Fullhardt Knob,395,ATC,37.398462,-79.853906,Stick_w/ply_siding
+Big Spring Gap,396,ATC,35.058918,-83.478898,Stick_w/T1_siding
+Laurel Creek Shelter,397,TNL,37.358960,-80.420680,Shelter
+Pickle Branch,398,ATC,37.380090,-80.184820,Log w/siding
+Garfield Ridge Campsite Shelter,399,TNL,44.190690,-71.608360,Shelter
+Stony Brook,400,ATC,43.691870,-72.730766,Stick_w/Lumber_sidng
+Sassafras Gap Shelter,401,TNL,35.330870,-83.666880,Shelter
+Happy Hill Shelter,402,TNL,43.723990,-72.365240,Shelter
+Potaywadjo Spring Lean-to,403,TNL,45.706530,-69.007380,Lean-to
+Rock Gap,404,ATC,35.091480,-83.523148,Stick_w/ply_siding
+Saunders,405,ATC,36.637683,-81.713643,Timber_Frame
+Mark Noepel Lean-to,406,TNL,42.608620,-73.184150,Lean-to
+Maupin Field Shelter,407,TNL,37.884900,-78.993630,Shelter
+Silers Bald Shelter,408,TNL,35.564300,-83.568220,Shelter
+Sabbath Day Pond Lean-to,409,TNL,44.840940,-70.662120,Lean-to
+Johns Hollow Shelter,410,TNL,37.612920,-79.391780,Shelter
+Rattle River Shelter,411,TNL,44.379900,-71.107430,Shelter
+Mount Le Conte Shelter,412,TNL,35.652800,-83.438900,Shelter
+Horseshoe Canyon Lean-to,413,TNL,45.282740,-69.627590,Lean-to
+Chestnut Knob,414,ATC,37.057686,-81.399556,Stone
+Kid Gore Shelter,415,TNL,43.014060,-73.042940,Shelter
+Thelma Marks Shelter,416,TNL,40.363580,-77.067260,Shelter
+Russell Field,417,ATC,35.561677,-83.766596,Stone
+Carlo Col Shelter,418,TNL,44.488670,-71.016180,Shelter
+Cable Gap,419,ATC,35.415165,-83.773522,Log
+Pickle Branch Shelter,420,TNL,37.380160,-80.184600,Shelter
+Carter Notch Hut,421,TNL,44.259260,-71.195330,Hut
+Niday,422,ATC,37.387645,-80.264229,Log w/siding
+Tucker Johnson removed,423,TNL,43.679430,-72.842950,Unknown
+Eliza Brook Campsite Shelter,424,TNL,44.100740,-71.741820,Shelter
+Pine Swamp,425,ATC,37.421984,-80.608683,Stone
+Carl A. Newhall Lean-to,426,TNL,45.531060,-69.315130,Lean-to
+Pass Mountain Hut,427,TNL,38.676600,-78.318900,Hut
+Pico Camp,428,ATC,43.638930,-72.831500,Unknown
+Kinsman Pond,429,ATC,44.136920,-71.732886,Log/Lumber
+Eckville,430,ATC,40.633740,-75.958260,Other
+Antietam Shelter,431,TNL,39.793800,-77.482570,Shelter
+Lonesome Lake Hut,432,TNL,44.138420,-71.703120,Hut
+West Mountain,433,ATC,41.282364,-74.009637,Stone
+Hurricane Mountain,434,ATC,36.715475,-81.509666,Log
+Spence Field,435,ATC,35.561784,-83.732667,Stone/Log
+Thunder Hill Shelter,436,TNL,37.527460,-79.503900,Shelter
+Muskrat Creek,437,ATC,35.020610,-83.581558,Log
+Abingdon Gap Shelter,438,TNL,36.580940,-81.901890,Shelter
+Wiley Shelter,439,TNL,41.637820,-73.532390,Shelter
+Eagles Nest,440,ATC,40.549352,-76.152755,Log
+Cow Camp Shelter,441,TNL,37.745040,-79.212690,Shelter
+Chestnut Knob Shelter,442,TNL,37.057730,-81.399340,Shelter
+Peru Peak Shelter,443,TNL,43.301200,-72.951850,Shelter
+Rocky Mountain Shelters,444,TNL,39.868520,-77.500600,Shelter
+Campbell,445,ATC,37.390755,-80.029446,Lumber
+Iron Mountain Shelter,446,TNL,36.435400,-81.990950,Shelter
+Roaring Fork,447,ATC,35.805120,-82.949530,Log
+Happy Hill,448,ATC,43.724072,-72.365667,Stone/Log
+Mashipicong,449,ATC,41.252159,-74.686359,Stone
+Darlington,450,ATC,40.301980,-77.087230,Stick_w/T1_siding
+October Mountain Lean-to,451,TNL,42.354930,-73.154040,Lean-to
+Cosby Knob,452,ATC,35.728228,-83.182110,Stone/Log
+Quarry Gap,453,ATC,39.931963,-77.486690,Log/Lumber
+War Spur,454,ATC,37.397569,-80.474025,Stick_w/Lumber_sidng
+Ed Garvey Shelter,455,TNL,39.359820,-77.661720,Shelter
+Ore Hill camp,456,TNL,43.921830,-71.957440,Unknown
+Roan High Knob Shelter,457,TNL,36.105060,-82.122220,Shelter
+Lost Pond Shelter,458,TNL,43.347600,-72.952570,Shelter
+Groundhog Creek,459,ATC,35.781742,-83.026452,Stone
+Laurel Fork,460,ATC,36.278670,-82.136390,Stone
+Partnership Shelter,461,TNL,36.809530,-81.422370,Shelter
+Windsor Furnace Shelter,462,TNL,40.590550,-75.941230,Shelter
+Spring Mountain,463,ATC,35.951714,-82.790282,Log/Lumber
+Derrick Knob,464,ATC,35.566503,-83.641887,Stone/Log
+Logan Brook Lean-to,465,TNL,45.560900,-69.235120,Lean-to
+Moose Mountain,466,ATC,43.727215,-72.149779,Log
+Allentown Shelter,467,TNL,40.683050,-75.873850,Shelter
+Peters Mountain,468,ATC,40.425910,-76.879650,Unknown
+RPH,469,ATC,41.514503,-73.792808,Other
+Little Rock Pond Shelter,470,TNL,43.404080,-72.953150,Shelter
+Peters Mountain Shelter,471,TNL,40.425930,-76.879320,Shelter
+Blood Mountain Shelter,472,TNL,34.740030,-83.937430,Shelter
+Tray Mountain Shelter,473,TNL,34.804130,-83.676780,Shelter
+Stewart Hollow Brook Lean-to,474,TNL,41.779280,-73.418510,Lean-to
+Gravel Springs Hut,475,TNL,38.763880,-78.233620,Hut
+Thomas Knob Shelter,476,TNL,36.656600,-81.535240,Shelter
+Greenleaf Hut,477,TNL,44.160240,-71.660240,Hut
+East Branch Lean-to,478,TNL,45.596760,-69.198160,Lean-to
+Clyde Smith Shelter,479,TNL,36.148520,-82.161180,Shelter
+Watauga Lake,480,ATC,36.313900,-82.129550,Stick_w/ply_siding
+Spring Mountain Shelter,481,TNL,35.951770,-82.790070,Shelter
+Bake Oven Knob,482,ATC,40.754111,-75.727429,Log
+Quarry Gap Shelters,483,TNL,39.931980,-77.486380,Shelter
+Churchill Scott Shelter,484,TNL,43.644890,-72.853400,Shelter
+High Point Shelter,485,TNL,41.315750,-74.657260,Shelter
+Limestone Spring Lean-to,486,TNL,41.975360,-73.392310,Lean-to
+The Priest Shelter,487,TNL,37.817650,-79.070330,Shelter

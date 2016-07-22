@@ -91,9 +91,9 @@ class ShelterCombinator(object):
         i = 0
         for key, value in self.shelters.items():
             if i == 0:
-                fp.write("shelter,data_set,lat,lon,type\n")
+                fp.write("shelter,shelter_id,data_set,lat,lon,type\n")
             else:
-                fp.write("%s,%s,%f,%f,%s\n" %(key, value['data_set'], float(value['lat']),
+                fp.write("%s,%d,%s,%f,%f,%s\n" %(key, i, value['data_set'], float(value['lat']),
                                               float(value['lon']), value['type']))
             i += 1
         fp.close()
