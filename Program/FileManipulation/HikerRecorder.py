@@ -49,6 +49,17 @@ def convertToCSV(hiker_journal):
         else:
             value['date'] = "None"
         if value['start_loc'] is not None:
+            value['start_loc']['shelter_name'] = value['start_loc']['shelter_name'].replace("\"", "\'")
+            value['start_loc']['shelter_name'] = ("\"" + value['start_loc']['shelter_name'] + "\"")
+        else:
+            value['start_loc'] = "None"
+        if value['dest'] is not None:
+            value['dest']['shelter_name'] = value['dest']['shelter_name'].replace("\"", "\'")
+            value['dest']['shelter_name'] = ("\"" + value['dest']['shelter_name'] + "\"")
+        else:
+            value['dest'] = "None"
+        '''
+        if value['start_loc'] is not None:
             value['start_loc'] = value['start_loc'].replace("\"", "\'")
             value['start_loc'] = ("\"" + value['start_loc'] + "\"")
         else:
@@ -58,9 +69,7 @@ def convertToCSV(hiker_journal):
             value['dest'] = ("\"" + value['dest'] + "\"")
         else:
             value['dest'] = "None"
-        # value['date'] = value['date'].replace(",", "")
-        # value['start_loc'] = value['start_loc'].replace(",", "")
-        # value['dest'] = value['dest'].replace(",", "")
+        '''
     return csv_hiker_journal
 
 """
@@ -69,33 +78,49 @@ main -Records every hiker in the hikers.csv file. Adheres to the Google Fusion T
 """
 def main(cmd_args):
     storage_location = "C:/Users/Chris/Documents/GitHub/ATS/Data/Hiker_Data"
+    validated_hiker_location = storage_location + "/Validated_Hikers"
     if not isValidStorageLocation(storage_location=storage_location):
         exit(-1)
     # Open the necessary files:
-    at_hikers = open("at-hikers.txt", 'r')
+    at_hikers = open(storage_location + "/at-hikers.txt", 'r')
     hiker_csv = open('hikers.csv', 'w')
     # Write CSV header:
-    hiker_csv.write("id,entry,date,start,dest,day_mileage,trip_mileage\n")
-    for line in iter(at_hikers):
-        hiker_fname = storage_location + "/" + str.strip(line, '\n') + ".json"
-        if os.path.isfile(hiker_fname):
-            with open(hiker_fname, 'r') as fp:
-                hiker_data = json.load(fp=fp)
-                print("Writing Hiker: %s to CSV file." % hiker_data['identifier'])
-                # hiker_csv.write(str(hiker_data['identifier']) + ",")
-                hiker_id = hiker_data['identifier']
-                hiker_journal = hiker_data['journal']
-                if hiker_journal:
-                    hiker_journal = sortHikerJournal(hiker_journal=hiker_journal)
-                    hiker_journal = convertToCSV(hiker_journal)
-                    for key, value in hiker_journal.items():
-                        hiker_csv.write(str(hiker_id) + "," + str(key) + "," + value['date'] + ","
-                                        + value['start_loc'] + "," + value['dest'] + ","
-                                        + str(value['day_mileage']) + "," + str(value['trip_mileage']) + "\n")
+    hiker_csv.write("hiker_id,entry_num,date,start,start_lat,start_lon,dest,dest_lat,dest_lon,day_mileage,trip_mileage\n")
+    for filename in os.listdir(validated_hiker_location):
+        with open(validated_hiker_location + "/" + filename, 'r') as fp:
+            hiker_data = json.load(fp=fp)
+        print("Writing Hiker: %s (%s) to CSV file." %(hiker_data['identifier'],hiker_data['trail_name']))
+        # hiker_csv.write(str(hiker_data['identifier']) + ",")
+        hiker_id = hiker_data['identifier']
+        hiker_journal = hiker_data['journal']
+        if hiker_journal:
+            hiker_journal = sortHikerJournal(hiker_journal=hiker_journal)
+            hiker_journal = convertToCSV(hiker_journal)
+            for key, value in hiker_journal.items():
+                if not value['start_loc'] or value['start_loc'] == "None":
+                    start_loc_shelter_name = "None"
+                    start_lat = "None"
+                    start_lon = "None"
                 else:
-                    pass
+                    start_loc_shelter_name = value['start_loc']['shelter_name']
+                    start_lat = str(value['start_loc']['lat'])
+                    start_lon = str(value['start_loc']['lon'])
+                if not value['dest'] or value['dest'] == "None":
+                    dest_shelter_name = "None"
+                    dest_lat = "None"
+                    dest_lon = "None"
+                else:
+                    dest_shelter_name = value['dest']['shelter_name']
+                    dest_lat = str(value['dest']['lat'])
+                    dest_lon = str(value['dest']['lon'])
+                hiker_csv.write(str(hiker_id) + "," + str(key) + "," + value['date'] + ","
+                                + start_loc_shelter_name + "," + start_lat + ","
+                                + start_lon + "," + dest_shelter_name + "," + dest_lat
+                                + "," + dest_lon + "," + str(value['day_mileage']) + "," + str(value['trip_mileage']) + "\n")
         else:
-            print("HIKER RECORDER: Hiker File: %s not found." % hiker_fname)
+            pass
+    else:
+        print("HIKER RECORDER: Hiker File: %s not found." % hiker_fname)
     hiker_csv.close()
     at_hikers.close()
 
