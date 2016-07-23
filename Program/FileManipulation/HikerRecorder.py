@@ -120,7 +120,7 @@ def main(cmd_args):
         else:
             pass
     else:
-        print("HIKER RECORDER: Hiker File: %s not found." % hiker_fname)
+        print("HIKER RECORDER: Hiker File: %s not found.")
     hiker_csv.close()
     at_hikers.close()
 

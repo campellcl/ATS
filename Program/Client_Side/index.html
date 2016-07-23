@@ -13,6 +13,7 @@
         <div id="map">
             <script id="map-script">
                 var map;
+                var shelterLayer;
                 function initMap() {
                     var mapOptions = {
                         center: {lat: 34.6271827, lng: -84.1938217},
@@ -33,6 +34,13 @@
                             from: '1sWS1ydRkfLOprAw__Zh7sKhacoMtJikEHH3kDB_f'
                         },
                         map: map,
+                        suppressInfoWindows: true
+                    });
+                    shelterLayer = new google.maps.FusionTablesLayer({
+                        query: {
+                            select: 'lat',
+                            from: '1pyLD00bTsB_lBIQtxnOmC_-pfEtjrJJzw0q7PNAJ'
+                        },
                         suppressInfoWindows: true
                     });
                 }
@@ -74,20 +82,23 @@
         <div id="dev-controls">
             <button id="display-shelter-layer-button" type="button">Display Shelters</button>
             <button id="display-hiker-start-layer-button" type="button">Display Hiker Start Location Layer</button>
+            <button id="display-hiker-dest-layer-button" type="button">Display Hiker Destination Location Layer</button>
             <script type="text/javascript" id="init-hiker-layers-script">
-                init_shelter_button_pressed = false;
-                init_hiker_button_pressed = false;
+                var display_shelter_layer_button_pressed = false;
+                var display_hiker_start_layer_button_pressed = false;
+                var display_hiker_dest_layer_button_pressed = false;
+
                 $("button").click(function() {
                     console.log(this.id + " button was pressed.");
                     if (this.id == "display-shelter-layer-button") {
-                        var shelterLayer = new google.maps.FusionTablesLayer({
-                            query: {
-                                select: 'lat',
-                                from: '1pyLD00bTsB_lBIQtxnOmC_-pfEtjrJJzw0q7PNAJ'
-                            },
-                            map: map,
-                            suppressInfoWindows: true
-                        });
+                        //Toggle AT Shelters Layer
+                        if (!display_shelter_layer_button_pressed) {
+                            shelterLayer.setMap(map);
+                            display_shelter_layer_button_pressed = true;
+                        } else {
+                            shelterLayer.setMap(null);
+                            display_shelter_layer_button_pressed = false;
+                        }
                     } else if (this.id == "display-hiker-start-layer-button") {
                         //Init Hiker Start Location Layer
                         var hiker_start_layer = new google.maps.FusionTablesLayer({
@@ -101,20 +112,20 @@
                             },
                             suppressInfoWindows: false
                         });
+                    } else if (this.id == "display-hiker-dest-layer-button") {
+                        var hiker_dest_layer = new google.maps.FusionTablesLayer({
+                            query: {
+                                select: 'dest_lat',
+                                from: '1hDVF1OpgMuSUbWc138-Am7BoVmNjubjfod0AalgH'
+                            },
+                            map: map,
+                            heatmap: {
+                                enabled: true
+                            },
+                            suppressInfoWindows: false
+                        });
                     }
                 });
-
-
-                function buttonClick(event) {
-                    console.log("Button Number: " + event.button.id + " was pressed.")
-                    if (event.button.id == "init-hiker-layers-button") {
-                        console.log("Adding Hiker Starting Location Layer");
-
-                    } else if (event.button.id == "init-shelter-layer-button") {
-                        // Initialize the shelter overlay.
-
-                    }
-                }
             </script>
         </div>
     </div>
