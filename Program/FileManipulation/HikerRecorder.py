@@ -85,12 +85,11 @@ def main(cmd_args):
     at_hikers = open(storage_location + "/at-hikers.txt", 'r')
     hiker_csv = open('hikers.csv', 'w')
     # Write CSV header:
-    hiker_csv.write("hiker_id,entry_num,date,start,start_lat,start_lon,dest,dest_lat,dest_lon,day_mileage,trip_mileage\n")
+    hiker_csv.write("hiker_id,dir,entry_num,date,start,start_lat,start_lon,dest,dest_lat,dest_lon,day_mileage,trip_mileage\n")
     for filename in os.listdir(validated_hiker_location):
         with open(validated_hiker_location + "/" + filename, 'r') as fp:
             hiker_data = json.load(fp=fp)
-        print("Writing Hiker: %s (%s) to CSV file." %(hiker_data['identifier'],hiker_data['trail_name']))
-        # hiker_csv.write(str(hiker_data['identifier']) + ",")
+        print("Writing Hiker: %s (%s) to CSV file." %(hiker_data['identifier'], hiker_data['trail_name']))
         hiker_id = hiker_data['identifier']
         hiker_journal = hiker_data['journal']
         if hiker_journal:
@@ -113,7 +112,11 @@ def main(cmd_args):
                     dest_shelter_name = value['dest']['shelter_name']
                     dest_lat = str(value['dest']['lat'])
                     dest_lon = str(value['dest']['lon'])
-                hiker_csv.write(str(hiker_id) + "," + str(key) + "," + value['date'] + ","
+                try:
+                    hiker_dir = hiker_data['dir']
+                except KeyError:
+                    hiker_dir = "None"
+                hiker_csv.write(str(hiker_id) + "," + hiker_dir + "," + str(key) + "," + value['date'] + ","
                                 + start_loc_shelter_name + "," + start_lat + ","
                                 + start_lon + "," + dest_shelter_name + "," + dest_lat
                                 + "," + dest_lon + "," + str(value['day_mileage']) + "," + str(value['trip_mileage']) + "\n")

@@ -152,7 +152,17 @@ def main():
     # Retrieve each validated hiker and determine their direction of travel.
     for filename in os.listdir(validated_hikers_data_path):
         fp = open(validated_hikers_data_path + "/" + filename, 'r')
-        hiker = json.load(fp=fp)
+        delete = []
+        try:
+            hiker = json.load(fp=fp)
+        except:
+            print("Critical Error: Couldn't read (via json.load) the file at: " + validated_hikers_data_path + "/" + filename)
+            # delete.append(validated_hikers_data_path + "/" + filename)
+        '''
+        fp.close()
+        for file in delete:
+            os.remove(file)
+        '''
         try:
             dir = hiker['dir']
         except KeyError:
