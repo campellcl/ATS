@@ -33,31 +33,19 @@ class DirectionRecorder(object):
     """
     def get_first_validated_shelter(self, sorted_journal):
         ordered_entries = list(sorted_journal.items())
-        try:
-            shelter_one = ordered_entries[0][1]
-        except Exception:
-            print("Critical Error: A hiker was included in the \"validated\" directory with no mapped shelters!")
-            exit(-1)
-        try:
-            shelter_one = shelter_one['start_loc']
-            if not shelter_one:
-                shelter_one = ordered_entries[0][1]
-                print("This hiker's first validated entry has no 'start_loc'. "
-                      "Attempting to use 'dest' for cardinal direction calculation")
-        except KeyError:
-            print("This hiker's first validated entry has no 'start_loc'. "
-                  "Attempting to use 'dest' for cardinal direction calculation")
-        try:
-            shelter_one = shelter_one['dest']
-            if not shelter_one:
-                print("Critical Error: This hiker's first validated entry has no 'start_loc' or 'dest'. "
-                  "This entry should never have been listed as validated!")
-                exit(-1)
-        except KeyError:
-            print("Critical Error: This hiker's first validated entry has no 'start_loc' or 'dest'. "
-                  "This entry should never have been listed as validated!")
-            exit(-1)
-        return shelter_one
+        for entry in ordered_entries:
+            try:
+                shelter_one_start = entry[1]['start_loc']
+                shelter_one_dest = entry[1]['dest']
+            except KeyError:
+                pass
+            if shelter_one_start is not None:
+                return shelter_one_start
+            elif shelter_one_dest is not None:
+                return shelter_one_dest
+            else:
+                print("This hiker's second validated entry has a shelter id equal to the "
+                      "first validated entry. Trying next entry.")
 
     """
     get_second_validated_shelter -Returns the second validated/mapped shelter in the hiker journal.
@@ -81,47 +69,6 @@ class DirectionRecorder(object):
             else:
                 print("This hiker's second validated entry has a shelter id equal to the "
                       "first validated entry. Trying next entry.")
-        '''
-        try:
-            shelter_two = ordered_entries[1][1]
-        except Exception:
-            print("Critical Error: Only one journal entry was validated; therefore direction could not be determined!")
-            exit(-1)
-        try:
-            shelter_two = shelter_two['start_loc']
-            if shelter_two['start_loc']['shelter_id'] != self.shelter_one['shelter_id']:
-                pass
-            else:
-                shelter_two = ordered_entries[1][1]
-                print("This hiker's second validated entry has a 'shelter_id' == shelter_one['shelter_id']."
-                      " Attempting to use 'dest' for cardinal direction calculation.")
-        except KeyError:
-            shelter_two = ordered_entries[1][1]
-            print("This hiker's second validated entry has no 'start_loc'. "
-                  "Attempting to use 'dest' for cardinal direction calculation")
-        if not shelter_two:
-            shelter_two = ordered_entries[1][1]
-            print("This hiker's second validated entry has no 'start_loc'. "
-                  "Attempting to use 'dest' for cardinal direction calculation")
-        else:
-            if shelter_two['start_loc']['shelter_id'] != self.shelter_one['shelter_id']:
-                return shelter_two
-            else:
-                shelter_two = ordered_entries[1][1]
-                print("This hiker's second validated entry has a ['start_loc']['shelter_id'] == shelter_one['shelter_id']."
-                      " Attempting to use 'dest' for cardinal direction calculation.")
-        try:
-            shelter_two = shelter_two['dest']
-            if not shelter_two:
-                print("Critical Error: This hiker's second validated entry has no 'start_loc' or 'dest'. "
-                  "This entry should never have been listed as validated!")
-                exit(-1)
-        except KeyError:
-            print("Critical Error: This hiker's second validated entry has no 'start_loc' or 'dest'. "
-                  "This entry should never have been listed as validated!")
-            exit(-1)
-        return shelter_two
-    '''
 
     """
     sortHikerJournal -Takes an unsorted hiker trail journal and returns a journal sorted by entry number.
@@ -169,6 +116,11 @@ class DirectionRecorder(object):
         compass_bearing = (initial_bearing + 360) % 360
         return compass_bearing
 
+    """
+    determine_cardinal_direction -Given a compass bearing, returns the cardinal direction associated with that bearing.
+    @param compass_bearing -The initial compass bearing between two validated shelters.
+    @return cardinal_dir -The cardinal direction of the compass rose associated with the provided compass bearing.
+    """
     def determine_cardinal_direction(self, compass_bearing):
         if compass_bearing >= 0 and compass_bearing < 45:
             return 'North'
@@ -189,12 +141,21 @@ class DirectionRecorder(object):
         elif compass_bearing == 360:
             return 'North'
 
+def update_hiker(file_pointer, filename, hiker):
+    file_pointer.close()
+    os.remove(filename)
+    with open(filename, 'w') as fp:
+        json.dump(hiker, fp)
+
 def main():
     validated_hikers_data_path = "C:/Users/Chris/Documents/GitHub/ATS/Data/Hiker_Data/Validated_Hikers"
     # Retrieve each validated hiker and determine their direction of travel.
     for filename in os.listdir(validated_hikers_data_path):
-        with open(validated_hikers_data_path + "/" + filename, 'r') as fp:
-            hiker = json.load(fp=fp)
+        fp = open(validated_hikers_data_path + "/" + filename, 'r')
+        hiker = json.load(fp=fp)
+        try:
+            dir = hiker['dir']
+        except KeyError:
             cardinal_interpreter = DirectionRecorder(hiker=hiker)
             if cardinal_interpreter.shelter_one and cardinal_interpreter.shelter_two:
                 start_coordinate = (cardinal_interpreter.shelter_one['lat'], cardinal_interpreter.shelter_one['lon'])
@@ -213,6 +174,7 @@ def main():
                 print("Although both coordinates were supplied; the cardinal-direction-interpreter "
                       "failed to retrieve a valid direction. Therefore hiker['dir'] = None")
                 hiker['dir'] = "None"
+            update_hiker(file_pointer=fp, filename=(validated_hikers_data_path + "/" + filename), hiker=hiker)
 
 if __name__ == '__main__':
     main()

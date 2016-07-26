@@ -25,7 +25,7 @@ def get_hiker_urls():
     read_location = "C:/Users/Chris/Documents/GitHub/ATS/Data/Hiker_Data"
     os.chdir(read_location)
     at_hikers = open("at-hikers.txt", 'r')
-    storage_location = "C:/Users/Chris/Documents/GitHub/ATS/Data/Hiker_Data"
+    storage_location = "C:/Users/Chris/Documents/GitHub/ATS/Data/Hiker_Data/Unvalidated_Hikers"
     for line in iter(at_hikers):
         line = line.strip('\n')
         hiker_fname = storage_location + "/" + line + ".json"
@@ -298,7 +298,7 @@ def parse_hiker_journal(journal_url):
     return hiker_journal
 
 def write_hiker(hiker):
-    storage_location = "C:/Users/Chris/Documents/GitHub/ATS/Data/Hiker_Data"
+    storage_location = "C:/Users/Chris/Documents/GitHub/ATS/Data/Hiker_Data/Unvalidated_Hikers"
     hiker_fname = storage_location + "/" + str(hiker['identifier']) + ".json"
     working_dir = os.getcwd()
     if os.path.isdir(storage_location):
