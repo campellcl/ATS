@@ -22,7 +22,6 @@
                 var northbound_dest_layer;
                 var southbound_dest_layer;
 
-
                 function initMap() {
                     var mapOptions = {
                         center: {lat: 34.6271827, lng: -84.1938217},
@@ -74,7 +73,7 @@
                         query: {
                             select: 'start_lat',
                             from: '1JUAkUL5H7IhU4QrmLuVQ65Tg2SNyI5Xqm3A7Nk1g',
-                            where: "'dir' = 'Southbound'"
+                            where: "dir='Southbound'"
                         },
                         heatmap: {
                             enabled: true
@@ -95,7 +94,7 @@
                         query: {
                             select: 'dest_lat',
                             from: '1JUAkUL5H7IhU4QrmLuVQ65Tg2SNyI5Xqm3A7Nk1g',
-                            where: "'dir' = 'Northbound'"
+                            where: "dir = 'Northbound'"
                         },
                         heatmap: {
                             enabled: true
@@ -106,7 +105,7 @@
                         query: {
                             select: 'dest_lat',
                             from: '1JUAkUL5H7IhU4QrmLuVQ65Tg2SNyI5Xqm3A7Nk1g',
-                            where: "'dir' = 'Southbound'"
+                            where: "dir = 'Southbound'"
                         },
                         heatmap: {
                             enabled: true
@@ -140,10 +139,19 @@
                 $(document).ready(init);
                 function init() {
                     $.get(
-                        "https://www.googleapis.com/fusiontables/v2/tables/1IrUUtabFBL4YuBFOeBPKxcnMafqAKXb2zosmBQkf?key=AIzaSyBCjde_rx_Fe0v4G_vD-uI33M1o9toMF2A", 
+                        "https://www.googleapis.com/fusiontables/v2/tables/1JUAkUL5H7IhU4QrmLuVQ65Tg2SNyI5Xqm3A7Nk1g?key=AIzaSyBCjde_rx_Fe0v4G_vD-uI33M1o9toMF2A",
                         function(data, status) {
                             console.log("Data: " + data);
                             console.log("Status: " + status);
+                        }
+                    );
+                    var northbound_start_lat;
+                    $.get(
+                        "https://www.googleapis.com/fusiontables/v2/query?sql=SELECT+start_lat+,+dir+FROM+1JUAkUL5H7IhU4QrmLuVQ65Tg2SNyI5Xqm3A7Nk1g+WHERE+dir='Northbound'&key=AIzaSyBCjde_rx_Fe0v4G_vD-uI33M1o9toMF2A",
+                        function(data, status) {
+                            console.log("Query Data: " + data);
+                            console.log("Query Status: " + status);
+                            northbound_start_lat = data;
                         }
                     );
                 }
@@ -158,24 +166,24 @@
                 </tr>
                 <tr>
                     <td>
-                        <button id="northbound-start-layer-button">Toggle Northbound Hiker's Start Location Layer</button>
+                        <button id="northbound-start-button">Toggle Northbound Hiker's Start Location Layer</button>
                     </td>
                     <td>
                         <button id="toggle-at-centerline-button" type="button">Toggle AT Centerline Layer</button>
                     </td>
                     <td>
-                        <button id="southbound-start-layer-button">Toggle Southbound Hiker's Start Location Layer</button>
+                        <button id="southbound-start-button">Toggle Southbound Hiker's Start Location Layer</button>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <button id="northbound-dest-layer-button">Toggle Northbound Hiker's Destination Location Layer</button>
+                        <button id="northbound-dest-button">Toggle Northbound Hiker's Destination Location Layer</button>
                     </td>
                     <td>
                         <button id="toggle-at-shelter-button" type="button">Toggle AT Shelter Layer</button>
                     </td>
                     <td>
-                        <button id="southbound-dest-layer-button">Toggle Southbound Hiker's Destination Location Layer</button>
+                        <button id="southbound-dest-button">Toggle Southbound Hiker's Destination Location Layer</button>
                     </td>
                 </tr>
             </table>
@@ -192,6 +200,7 @@
                     if (this.id == "toggle-at-centerline-button") {
                         //Toggle AT Centerline Layer
                         if (!toggle_at_centerline_button_pressed) {
+                            console.log("Toggle AT Centerline on");
                             centerline_layer.setMap(map);
                             toggle_at_centerline_button_pressed = true;
                         } else {
@@ -210,36 +219,44 @@
                     } else if (this.id == "northbound-start-button") {
                         //Toggle Northbound Hiker Start Location Layer
                         if (!northbound_start_button_pressed) {
+                            console.log("Toggle Northbound Hiker Start Location Layer On");
                             northbound_start_layer.setMap(map);
                             northbound_start_button_pressed = true;
                         } else {
+                            console.log("Toggle Northbound Hiker Start Location Layer Off");
                             northbound_start_layer.setMap(null);
                             northbound_start_button_pressed = false;
                         }
                     } else if (this.id == "northbound-dest-button") {
                         //Toggle Northbound Hiker Destination Layer
                         if (!northbound_dest_button_pressed) {
+                            console.log("Toggle Northbound Hiker Destination Location Layer On");
                             northbound_dest_layer.setMap(map);
                             northbound_dest_button_pressed = true;
                         } else {
+                            console.log("Toggle Northbound Hiker Destination Location Layer Off");
                             northbound_dest_layer.setMap(null);
                             northbound_dest_button_pressed = false;
                         }
                     } else if (this.id == "southbound-start-button") {
                         //Toggle Southbound Hiker Start Location Layer
                         if (!southbound_start_button_pressed) {
+                            console.log("Toggle Southbound Hiker Start Location Layer On");
                             southbound_start_layer.setMap(map);
                             southbound_start_button_pressed = true;
                         } else {
+                            console.log("Toggle Southbound Hiker Start Location Layer Off");
                             southbound_start_layer.setMap(null);
                             southbound_start_button_pressed = false;
                         }
                     } else if (this.id == "southbound-dest-button") {
                         //Toggle Southbound Hiker Destination Location Layer
                         if (!southbound_dest_button_pressed) {
+                            console.log("Toggle Southbound Hiker Destination Location Layer On");
                             southbound_dest_layer.setMap(map);
                             southbound_dest_button_pressed = true;
                         } else {
+                            console.log("Toggle Southbound Hiker Destination Location Layer Off");
                             southbound_dest_layer.setMap(null);
                             southbound_dest_button_pressed = false;
                         }
