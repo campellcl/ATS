@@ -154,7 +154,7 @@ def get_validated_places(validated_places_path):
 
 def main():
     unvalidated_hikers_data_path = "C:/Users/Chris/Documents/GitHub/ATS/Data/Hiker_Data"
-    validated_hikers_data_path = "C:/Users/Chris/Documents/GitHub/ATS/Data/Hiker_Data/Validated_Hikers"
+    validated_hikers_data_path = "C:/Users/Chris/Documents/GitHub/ATS/Data/Hiker_Data/Validated_Hikers/Unvalidated_Hikers"
     validated_data_path = "C:/Users/Chris/Documents/GitHub/ATS/Data/Shelter_Data"
 
     # Go through the list of unvalidated hikers and validate.

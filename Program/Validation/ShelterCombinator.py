@@ -80,7 +80,8 @@ class ShelterCombinator(object):
         for key, value in self.ATCS.items():
             self.shelters[key] = value
         for key, value in self.TNLS.items():
-            self.shelters[key] = value
+            if key not in self.shelters.keys():
+                self.shelters[key] = value
 
     """
     writeData -Writes the combined data to a single Google Fusion Table styled CSV file.
