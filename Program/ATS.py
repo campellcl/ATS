@@ -17,21 +17,24 @@ class ATS(object):
         self.populateShelters()
 
     """
-    populateShelters -Updates self.shelters to contain the list of pre-recorded shelter names and locations.
+    populateShelters -Updates self.shelters to contain the list of pre-recorded shelter names and locations. Uses the
+        file validated_shelters.csv for recorded shelters.
     Note: Shelter names are stored lower case for substring comparison later on.
     """
     def populateShelters(self):
         self.shelters = {}
-        at_shelter_path = "C:/Users/Chris/Documents/GitHub/ATS/Data/AT_Conservancy_Data/AT_Shelters/AT_Shelters.csv"
+        at_shelter_path = "C:/Users/Chris/Documents/GitHub/ATS/Data/Shelter_Data/validated_shelters.csv"
         fp = open(at_shelter_path, 'r')
         line_num = 0
         for line in iter(fp):
             if not line_num == 0:
                 split_string = str.split(line, sep=",")
-                shelter_name = split_string[1]
-                shelter_lon = float(split_string[len(split_string) - 1])
-                shelter_lat = float(split_string[len(split_string) - 2])
-                self.shelters[str.lower(str(shelter_name))] = {'num': 0, 'lat': shelter_lat, 'lon': shelter_lon}
+                shelter_name = split_string[0]
+                data_set = split_string[1]
+                lat = float(split_string[2])
+                lon = float(split_string[3])
+                type = split_string[4]
+                self.shelters[str.lower(str(shelter_name))] = {'num': 0, 'dataset': data_set, 'type': type, 'lat': lat, 'lon': lon}
             line_num += 1
         fp.close()
 
@@ -44,6 +47,8 @@ class ATS(object):
         lookupKey = None
         isLoggedShelter = False
         shelter_name = str.lower(shelter_name)
+        num_quotes = shelter_name.count("\"", 0, len(shelter_name))
+        shelter_name = shelter_name.replace("\"", "", num_quotes)
         # Preliminary Work, Convert list of shelters to lower case:
         lower_case_shelters = {}
         for shelter, info in self.shelters.items():
@@ -83,6 +88,7 @@ class ATS(object):
     @return void -Upon completion, self.shelters['key']['num'] is updated with the # of times each shelter was visited.
     """
     def getShelterStats(self):
+        print("ATS: Gathering Shelter Statistics...")
         num_hikers = 0
         total_num_hikers = self.fileLineCount("at-hikers.txt")
         storage_location = "C:/Users/Chris/Documents/GitHub/ATS/Data/Hiker_Data"
@@ -93,11 +99,12 @@ class ATS(object):
                 hiker_fname = storage_location + "/" + str.strip(line, '\n') + ".json"
                 os.chdir(storage_location)
                 if not os.path.isfile(hiker_fname):
-                    print("USER VALIDATOR: Hiker File: %s could not be found. Continuing anyway." % hiker_fname)
+                    print("ATS: Hiker File: %s could not be found. Continuing anyway." % hiker_fname)
                 try:
                     with open(hiker_fname, 'r') as hiker:
                         hiker_data = json.load(fp=hiker)
                         hiker_journal = hiker_data['journal']
+                        last_dest = None
                         for key in hiker_journal.keys():
                             entry = hiker_journal[key]
                             start_loc = entry['start_loc']
@@ -116,18 +123,23 @@ class ATS(object):
                                     self.shelters[dest] = {'lat': None, 'lon': None, 'num': 1}
                                 else:
                                     self.shelters[shelterLoggedInfo[1]]['num'] += 1
+                                last_dest = dest
                     num_hikers += 1
                 except:
                     num_hikers += 1
             # print("")
         os.chdir(cwd)
 
+    def sortShelterStats(self):
+        pass
+
     """
+    writeShelterStats -Writes
     """
     def writeShelterStats(self):
         outputfile_name = "ATS.csv"
         with open(outputfile_name, 'w') as fp:
-            fp.write("shelter,number,lat,lon")
+            fp.write("shelter,number,lat,lon\n")
             for key, value in self.shelters.items():
                 try:
                     lat = value['lat']
@@ -135,12 +147,11 @@ class ATS(object):
                 except:
                     lat = "None"
                     lon = "None"
-                fp.write("\"" + str(key) + "\"," + str(value['num']) + "," + str(value['lat']) + "," + str(value['lon']))
-
+                fp.write("\"" + str(key) + "\"," + str(value['num']) + "," + str(value['lat']) +
+                         "," + str(value['lon']) + "\n")
 
     """
     printShelterStats -Prints the obtained statistics regarding AT shelter usage.
-
     """
     def printShelterStats(self):
         outputString = ""
